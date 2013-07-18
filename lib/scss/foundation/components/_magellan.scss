@@ -1,0 +1,26 @@
+//
+// Magellan Variables
+//
+<<<<<<< HEAD
+$include-html-magellan-classes: $include-html-classes !default;
+
+=======
+>>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
+$magellan-bg: #fff !default;
+$magellan-padding: 10px !default;
+
+@if $include-html-magellan-classes != false {
+
+  [data-magellan-expedition] {
+    background: $magellan-bg;
+    z-index: 50;
+    min-width: 100%;
+    padding: $magellan-padding;
+
+    .sub-nav {
+      margin-bottom: 0;
+      dd { margin-bottom: 0; }
+    }
+  }
+
+}

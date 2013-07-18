@@ -1,0 +1,75 @@
+@charset "UTF-8";
+@import "normalize";
+// compass import
+// @import "compass";
+// @import "compass/css3";
+@import "variables";
+@import "foundation";
+
+.serious-text{
+	//font-family: 'Open Sans', sans-serif;	
+}
+h1{
+	font-weight: bold;
+	text-transform: uppercase;
+  @include rhythm(0, 0, 0, 0);
+	@include adjust-font-size-to(1px * modScale($textNumber, 1));  
+  span{
+  	color: darken($body-font-color, 5%);
+  	&:hover{
+	  	color: $primary-color;
+  	}
+  }
+}
+h2{
+  opacity: .6;
+  font-weight: normal;
+	text-transform: uppercase;
+	@include adjust-font-size-to(1px * modScale($textNumber, 0));
+  @include rhythm(0, 2, 0, 1);
+  .shouting &{
+	  @include rhythm(0, 2, 0, 0);  	
+  }
+}
+
+.top-bar{
+  @include rhythm(0, 0, 0, 0, 1px * .75 * modScale($textNumber, 0));	
+  a{  	
+  	color: $good;
+  	&:hover{
+	  	color: $good;  		
+  	}  	
+		@include adjust-font-size-to(1px * .75 * modScale($textNumber, 0));  	
+		text-transform: uppercase;
+		margin-left: 1px * modScale($textNumber, 2);
+		&:first-child{ margin-left: 0; }
+  }
+}
+
+footer{
+  @include rhythm(0, 0, 0, 3);	
+}
+
+	[class*="column"] + [class*="column"]:last-child {
+		float: left;
+	}	
+
+.shot{
+	@include rhythm(0, 0, 1, 0);  		
+	h3, h4{
+		display: none;
+	}
+	// img{
+	// 	@include min-width(100%);
+	// }
+}
+
+@media #{$medium} {
+	h1{
+	  @include rhythm(0, 0, 0, 0);
+		@include adjust-font-size-to(1px * modScale($textNumber, 2));  	  
+	}
+	h2{
+		@include adjust-font-size-to(.825 * 1px * modScale($textNumber, 0));	
+	}
+}

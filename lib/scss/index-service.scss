@@ -1,0 +1,177 @@
+@import "index-base";
+
+/* Service page */
+
+
+h3{
+	&:before{
+		border-radius: 50%;
+		content:"";
+		display: block;
+		height: 2em;
+		margin: 0 auto .25em;
+		width: 2em;
+		@include background($brownBright url('/stylesheets/img/service/ico/ico-v60.svg') no-repeat center center);			
+		@include background-size(34px auto);
+	}
+	.what-is-involved &{
+		&:before{
+			@include background-image(url("/stylesheets/img/service/ico/ico-v60.svg"));			
+			@include background-size(32px auto);			
+		}
+	}
+	.free-you-say &{
+		&:before{
+			@include background-image(url("/stylesheets/img/service/ico/ico-free.svg"));			
+			@include background-size(25px auto);			
+		}
+	}
+	.coffee-served &{
+		&:before{
+			@include background-image(url("/stylesheets/img/service/ico/ico-sack.svg"));			
+			@include background-size(20px auto);			
+		}
+	}	
+	.from-you &{
+		&:before{
+			@include background-image(url("/stylesheets/img/service/ico/ico-kettle.svg"));			
+			@include background-size(40px auto);			
+		}
+	}	
+	.who-am-i &{
+		&:before{
+			@include background-image(url("/stylesheets/img/service/ico/ico-bowtie.svg"));			
+			@include background-size(33px auto);			
+		}
+	}	
+	.why-do-this &{
+		&:before{
+			@include background-image(url("/stylesheets/img/service/ico/ico-chemex.svg"));			
+			@include background-size(20px auto);			
+		}
+	}
+}
+
+
+// <div class="large-6 columns what-is-involved">
+// <div class="large-6 columns free-you-say">
+// <div class="row text-center coffee-served">
+// <div class="large-6 columns from-you">
+// <div class="row text-center who-am-i">
+// <div class="large-6 columns why-do-this">
+// ico-bowtie.svg
+// ico-chemex.svg
+// ico-free.svg
+// ico-kettle.svg
+// ico-sack.svg
+// ico-v60.svg
+
+
+.tools{
+	height: 220px;
+	position: relative;
+	.tool{
+		background: red;
+		bottom: 0;
+		position: absolute;
+		@include inline-block();
+		&.kettle{
+			bottom: 5px;
+			height: 130px;
+			left: 8%;
+			width: 205px;
+			z-index: 18;
+			@include background(url('/images/service/equipment/kettle.png'));			
+		}		
+		&.wave{
+			display: none;
+			height: 187px;
+			left: 24%;
+			width: 143px;
+			z-index: 19;			
+			@include background(url('/images/service/equipment/wave.png'));			
+		}
+		&.grinder{
+			bottom: 20px;
+			height: 214px;
+			left: 14%;
+			width: 76px;
+			z-index: 16;
+			@include background(url('/images/service/equipment/grinder.png'));
+		}
+		&.chemex{
+			bottom: 20px;			
+			height: 192px;
+			left: 45%;
+			width: 114px;
+			z-index: 17;
+			@include background(url('/images/service/equipment/chemex.png'));
+		}
+		&.intelli-cup{
+			height: 53px;
+			left: 65%;
+			width: 88px;
+			z-index: 20;
+			@include background(url('/images/service/equipment/intelli-cup.png'));
+		}				
+		&.kettle, &.wave, &.grinder, &.chemex, &.intelli-cup{
+			background-repeat: no-repeat;
+			@include background-size(contain);
+		}
+	}
+}
+
+@media #{$medium} {
+	.in-pittsburgh{
+		h1 span{
+			display: none;
+		}	
+	}	
+}
+
+@media #{$small} {
+	.tools{
+		height: 220px;
+		position: relative;
+		.tool{
+			background: red;
+			bottom: 0;
+			@include inline-block();
+
+			&.kettle{
+				left: 16%;
+				@include background(url('/images/service/equipment/kettle.png'));			
+			}		
+			&.wave{
+				left: 34%;
+				@include inline-block();							
+				@include background(url('/images/service/equipment/wave.png'));			
+			}
+			&.grinder{
+				left: 45.5%;
+				@include background(url('/images/service/equipment/grinder.png'));
+			}
+			&.chemex{
+				bottom: 5px;
+				left: 54%;
+				@include background(url('/images/service/equipment/chemex.png'));
+			}
+			&.intelli-cup{
+				left: 68%;
+				@include background(url('/images/service/equipment/intelli-cup.png'));
+			}				
+			&.kettle, &.wave, &.grinder, &.chemex, &.intelli-cup{
+				background-repeat: no-repeat;
+				@include background-size(contain);
+			}
+		}
+	}
+}
+
+/*
+  <div class="kettle tool"></div>
+  <div class="wave tool"></div>
+  <div class="grinder tool"></div>
+  <div class="chemex tool"></div>
+  <div class="intelli-cup tool"></div>
+*/

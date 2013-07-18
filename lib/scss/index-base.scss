@@ -1,0 +1,638 @@
+@charset "UTF-8";
+
+@import "normalize";
+// compass import
+@import "compass";
+@import "compass/css3";
+
+
+@import "index-variables";
+
+
+@import "foundation";
+
+@mixin box-sizing($sizing: border-box) {
+  -ms-box-sizing: $sizing;
+  -moz-box-sizing: $sizing;
+  -webkit-box-sizing: $sizing;
+  box-sizing: $sizing;
+}
+
+@mixin transform($args) {
+  -webkit-transform: $args;
+  -moz-transform: $args;
+  -o-transform: $args;
+  -ms-transform: $args;
+  transform: $args;
+}
+
+@mixin transition($duration:0.2s, $ease:ease-in-out) {
+  -webkit-transition: all $duration $ease;
+  -moz-transition: all $duration $ease;
+  -o-transition: all $duration $ease;
+  transition: all $duration $ease;
+}
+
+@mixin drop-shadow($x-axis: 0, $y-axis: 1px, $blur: 2px, $alpha: 0.1) {
+  -webkit-box-shadow: $x-axis $y-axis $blur rgba(0, 0, 0, $alpha);
+  -moz-box-shadow: $x-axis $y-axis $blur rgba(0, 0, 0, $alpha);
+  box-shadow: $x-axis $y-axis $blur rgba(0, 0, 0, $alpha);
+}
+
+@mixin mask-image($url) {
+    -webkit-mask-image: url($url);
+    -o-mask-image: url($url);
+    -moz-mask-image: url($url);
+    mask-image: url($url);
+}
+
+@mixin rotation($deg:5deg){
+  @include transform(rotate($deg));
+}
+
+@mixin rounded($radius: 2px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin flip($factor: -1) {
+	  @include transform(scaleY($factor));
+    filter: FlipH; /* IE 6/7/8 */
+}
+
+@mixin inline-block {
+  display: inline-block;
+  *zoom: 1;
+  *display: inline;
+}
+
+/* COMMONCLASSES */
+.spacey{ display:block; content: " "; }
+.nomargin{ margin: 0; }
+.nopadding{ margin: 0; }
+.left { float: left; }
+.right { float: right; }
+.block { display: block; }
+.inline { display: inline; }
+.nolist { list-style: none; }
+.nopadding { padding: 0; }
+.nomargin { margin: 0; }
+.none { display: none; }
+
+body{
+  background: $good url("img/texture-bg.jpg") repeat top left; 
+
+  //font-family: "proxima-nova", $baseFont;
+  //font-size: $textNumber * 1px;
+}
+
+/* Links */
+a {
+  color: $redMoody;
+  //text-decoration: underline;
+}
+
+a:hover {
+  //text-decoration: none;
+}
+a:active {
+  color: $redMoody;
+}
+.container {
+  //max-width: 1px * modScale($textNumber, 8);     
+}
+.container-full {
+  //max-width: 1px * modScale($textNumber, 8);      
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.content{
+    //@include background(linear-gradient(transparent, $good));  
+}
+
+.top-bar .name h1{
+  text-align: left;
+  .logomark{
+    background-size: 45% 45%;
+    //opacity: .9;
+    @include replace-text("img/logo-mark.svg");
+    @include transition;
+    &:hover{
+      //opacity: 1;
+      @include transform(rotate(180deg))
+      //@include rotate;
+    }    
+  }
+}
+
+.logo, .logomark{ margin: 0 auto; }
+.logomark{
+  @include replace-text("img/logo.svg");
+  //background-image: url("img/logo.svg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+h1, .header, ul, li{
+  @extend .nopadding;
+  @extend .nomargin;
+}
+
+li{
+  @include no-bullet;
+}
+
+  .text-shadowed{
+    text-shadow: 2px 2px 0 $good, 4px 4px 0 transparentize($brownBright, .4);    
+  }
+
+h1, h2, h3{
+  //color: $brownBold;
+  font-family: $capFace; 
+  font-weight: 600;             
+  letter-spacing: .5px;
+  //text-align: center;
+  //font-size: 1px * modScale($textNumber, 3);      
+  //text-transform: uppercase;
+  @extend .nopadding;
+  @extend .nomargin;    
+}
+h1{
+  font-size: 1px * modScale($textNumber, 3); 
+  em{
+    background-image: url("img/eyelash-downward.svg"), url("img/eyelash-upward.svg");
+    background-position: left 76%, right 20%;
+    background-size: contain, contain;
+    background-repeat: no-repeat, no-repeat;
+    font-family: $serif;
+    font-style: normal;
+    font-size: 35%;
+    text-transform: uppercase;
+    vertical-align: middle;
+    //color: $brownBright;
+    text-shadow: none;        
+    @include inline-block;
+  }
+}
+h1{ 
+  line-height: 1em;   
+  @extend .text-shadowed; 
+}
+
+header{
+  h1{
+    text-shadow: none;    
+  }
+}
+
+h2{ 
+  font-size: 1px * modScale($textNumber, 1);
+  font-family: $serif; 
+  font-weight: 100;
+  color: $redMoody;
+}
+
+h3{
+  color: $topbar-bg;
+  font-size: $h3-font-size;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+p{
+  color: $murkyGood;
+  line-height: 26px;
+  margin: 0 auto 27.723px;
+  //text-align: center;
+}
+
+.coffee-list{
+  h3{
+    &:before, &:after{
+      //color: $brownBold; //rgba($topbar-bg, .5);
+      content: "\201C";
+      font-size: 120%;
+      margin: 0 .05em;
+    }
+    &:after{
+      content: "\201D";         
+    }
+  }  
+}
+
+.mission, .about-index{
+  h2{
+    color: $blueBright;
+    letter-spacing: 2px;
+    font-size: 1px * modScale($textNumber, 1);      
+    font-weight: 400; 
+    font-family: $capFace; 
+  }
+}
+
+.mission.row{
+  margin-bottom: 1em;
+}
+
+.tm{
+  margin-top: 1.25em;
+}
+
+.espresso-description{
+  h2{
+    font-size: 1px * modScale($textNumber, 2);
+    margin: 0 auto 5px;
+  }
+}
+
+h1+h2{
+  margin-bottom: .5em;  
+  margin-top: .5em;  
+}
+
+hr{
+  &.spoon-and-brush{
+//    
+    border-width: 0 0 1px;
+    height: .5 * 1px * modScale($importantNumber, -4);    
+    opacity: .5;
+    overflow: visible;
+    margin: 1em auto;
+    position: relative;
+    @extend .nopadding;
+    @extend .nomargin;
+    &:after{
+      content: "";
+      background: transparent url(img/brush-and-spoon.svg) no-repeat center center;  
+      background-size: auto 70%;
+      height: 1px * modScale($importantNumber, -4);    
+      left: 0; right: 0; top: 0; bottom: 0;
+      line-height: 0;
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      vertical-align: middle;
+    } 
+    &:before{
+      background: $good;
+      content: "";
+      display: block;
+      height: 1px * modScale($importantNumber, -4);    
+      width: 1.7em;
+      margin: 0 auto;
+      position: relative;
+    }   
+  }
+}
+
+.social-footer{
+  background-color: $burntRed;  
+  min-height: 36px;
+  // this overflow fix breaks the ability to share. pimp
+  //overflow-x: hidden; // Socialite js is breaking horizontal borders so let's try this  
+  text-align: center;
+    .fb-like{
+      //margin-top: 8px;
+    }
+    #socialite{
+      @extend .nolist;
+      /* width: gets set by javascript */
+      margin: 8px auto;
+      li{
+        @include inline-block;
+        @extend .left; // float left here is to ensure noisome social buttons line up top
+      }       
+    }
+}
+
+section.content{
+  background-color: $good;
+  background-image: url("img/chevron-footer-brown.svg"), url("img/texture-bg.jpg");
+  background-size: 1996px auto, 100%;
+  background-repeat: repeat-x, repeat;
+  background-position: center bottom, center center; /*123.364px; */ 
+  padding-bottom: 1px * modScale($textNumber, 4);
+}
+
+.footer{
+  background-color: $footerEvil;
+  background-image: url("img/drop.svg");
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center (1px * modScale($textNumber, 1));
+  padding-top: 1px * modScale($textNumber, 4);
+  padding-bottom: 117.429px;
+  .footer-logo{
+    background-image: url("img/logo-mark.svg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;   
+    height: .1 * 191px;
+    margin-top: 27.723px;
+    opacity: 1;
+    text-align: center;
+    @include transition;
+    &:hover{
+      &:after{
+        color: $brownMellow;
+        content: "back to top";
+        display: block;      
+        padding-top: .15 * 191px;
+      }
+    }
+  }
+  p{ 
+    color: transparentize($blueBright, .3);// fade($blueBright, 70%);
+    font-weight: 300;   
+  }
+  p a, li a{
+      color: transparentize($blueBright, .3);
+      font-style: italic;
+      text-decoration: none;
+      padding: .05em .2em;
+      background-color: transparentize($blueBright, .85);
+      @include transition;
+      &:hover{
+        background-color: transparentize($blueBright, .75);       
+      }
+  }
+
+  .mission, .about-index{
+    h2{
+      line-height: 38px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+  }
+  .about-index{
+    border-bottom: 1px solid $brownMellow;
+    margin-top: 76.245px;
+    ul{
+      line-height: 27.723px;
+      text-align: right;
+      @extend .nolist;
+      li{
+        &:before{
+          color: $brownMellow;
+          content: "//";
+          padding-right: .2em;
+        }
+      }
+    }
+    h2{
+      //color: transparentize($blueBright, .55); //fade($blueBright, 45%);
+      line-height: 18px;
+      margin-bottom: 27.723px;
+      text-align: right;
+      font-size: 1px * modScale($textNumber, 1);
+
+    }
+    p{ color: transparentize($blueBright, .55); }
+    .illy{
+      &.kevin{
+        border: 1px solid $brownMellow;
+        line-height: 0;
+        margin-bottom: 27.723px;
+        padding: .05em;
+        opacity: .85;
+        @include box-sizing;
+        @include transition;
+        &:hover{
+          opacity: 1;
+        }       
+      }
+    }
+  }
+  .index-recommends{
+      text-align: center;
+      .for-best-coffee{
+          background-image: url("img/arrow-pointing-down.svg");
+          background-size: auto 70%;
+          background-repeat: no-repeat;
+          background-position: center bottom;
+          height: 100%;
+          p{
+            font-style: italic;
+            padding-bottom: 27.723px;
+          }
+      }
+      .brew-method{     
+        &.v60 a{
+          background-image: url("img/v60.svg");         
+          background-size: auto auto;
+          background-repeat: no-repeat;
+          background-position: center top;
+        }
+        &.aeropress a{
+          background-image: url("img/aeropress.svg");         
+          background-size: auto auto;
+          background-repeat: no-repeat;
+          background-position: center top;
+        }
+        &.chemex a{
+          background-image: url("img/chemex.svg");          
+          background-size: auto auto;
+          background-repeat: no-repeat;
+          background-position: center top;
+        }           
+        a{
+          color: $brownBright;
+          font-style: italic;
+          margin-top: 76.245px;
+          padding-top: 140px;
+          width: 100%;
+          text-decoration: none;
+          text-transform: uppercase;
+          @include inline-block;
+          font-size: 1px * modScale($textNumber, 0);
+          &:hover{
+            opacity: 1;
+          } 
+        }
+
+      }         
+  }
+}
+
+/* ==========================================================================
+/* -- Mobile Devices (Layout, Modifications, etc)
+   ========================================================================== */
+@media only screen and (max-width: 768px) {
+  // html, body {
+  //   height: 100%; // for beans background
+  // }
+  .social-footer{
+    width: 100%;
+  }   
+  #espresso-drink-guide {
+    .drink-types{
+      padding-bottom: 14px;
+      ul{
+        height: auto;
+        text-transform: uppercase;
+        li{
+          margin: 4.045px auto;
+          // these two rules to center drink names over drink on mobile
+          @include box-sizing;
+          @extend .block;
+          &.current{
+            a{ @extend .milky; }
+          }
+        }
+      }       
+    }
+    .espresso-illustration{
+        .cup{
+          .cup-inner{
+            margin-top: 27.723px;
+            width: 269px;
+          }
+        }
+    }
+  }
+  .espresso-description{
+      p:last-child{ margin-bottom: 0; }
+      &:nth-child(odd):after{
+        background-image: url("img/leaf-points-left.svg");        
+      }
+      &:after{
+        background-image: url("img/leaf-points-right.svg");
+        background-size: 18px*2.5 6.425px*2.5;
+        background-repeat: no-repeat;
+        background-position: center center;
+        //background-color: blue;
+        content: " ";           
+        height: 27.723px;
+        width: 100%;
+        @extend .block;
+      }
+  }
+  .cup{ overflow: hidden; }
+  h1{
+    letter-spacing: 0;  
+    line-height: 56px;
+    font-size: 60px; //1px * modScale($textNumber, 2.5);              
+      &:before{
+        @extend .spacey;
+        height: 1px * modScale($textNumber, -3);
+
+      } 
+      &:after{
+        @extend .spacey;
+        height: 1px * modScale($textNumber, 0);
+
+      }                         
+  }     
+
+  .footer{
+    .respect{
+      margin-bottom: 27.723px;
+    }
+    .index-recommends{
+      .brew-method{
+        background-image: url("img/arrow-pointing-down.svg");
+        background-size: auto 20%;
+        background-repeat: no-repeat;
+        background-position: center bottom;   
+        padding-bottom: 65px;
+
+        a{
+          padding-top: 140px;
+        }
+      }
+    }
+    .mission, .about-index{
+      h2{
+        line-height: 32px; 
+      }
+    }
+    .about-index{
+      ul, h2{
+        text-align: center;     
+      }
+      h2{
+        color: $blueBright;
+        margin-top: 46px;
+      }
+      ul li{
+        &:before{
+          content: "";
+        }
+      }
+    }
+  }
+
+} /* End Mobile Media Query */
+
+/* ==========================================================================
+/* -- Tablet Devices (Layout, Modifications, etc)
+   ========================================================================== */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+    h1{
+      font-size: 1px * modScale($textNumber, 2);
+    }
+
+
+
+// ==========================================================================
+// -- Custom Website Styles for Tablet Devices
+// ==========================================================================
+
+// Your custom website styles for tablet devices go here...
+
+} /* End Tablet Media Query */
+
+
+
+@media #{$small} {
+    h1+h2{
+      margin-bottom: .15em;  
+      margin-top: .15em;  
+    }  
+}
+
+
+/* ==========================================================================
+/* -- Bigger than Mobile Devices (Layout, Modifications, etc)
+   ========================================================================== */
+@media only screen and (min-width: 768px) {
+  .footer{
+    .index-recommends{
+      height: 278px; // 277.074
+      border-top: 1px solid $brownMellow;
+      border-bottom: 1px solid $brownMellow;
+      .vcenter{
+        height: 100%;
+        display: table;
+        >*{
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+      .for-best-coffee{
+          background-image: url("img/arrow-pointing-right.svg");
+          background-size: auto 101%;
+          background-repeat: no-repeat;
+          background-position: right center;
+          height: 100%;
+          p{
+            padding-bottom: 0;
+            padding-right: 10%;
+            text-align: left;
+          }
+      }
+      .brew-method{
+        a{
+          opacity: .5;          
+          @include transition;
+        }
+      }
+    }
+  }
+} /* End Mobile Media Query */
+

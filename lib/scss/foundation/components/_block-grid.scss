@@ -1,0 +1,98 @@
+//
+// Block Grid Variables
+//
+<<<<<<< HEAD
+$include-html-grid-classes: $include-html-classes !default;
+
+// We use this to control the maximum number of block grid elements per row
+$block-grid-elements: 12 !default;
+$block-grid-default-spacing: emCalc(20) !default;
+=======
+
+// We use this to control the maximum number of block grid elements per row
+$block-grid-elements: 12 !default;
+$block-grid-default-spacing: 10px !default;
+>>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
+
+// Enables media queries for block-grid classes. Set to false if writing semantic HTML.
+$block-grid-media-queries: true !default;
+
+//
+// Block Grid Mixins
+//
+
+// We use this mixin to create different block-grids. You can apply per-row and spacing options.
+// Setting $base-style to false will ommit default styles.
+@mixin block-grid($per-row:false, $spacing:$block-grid-default-spacing, $base-style:true) {
+
+  @if $base-style {
+    display: block;
+    padding: 0;
+<<<<<<< HEAD
+    margin: 0 (-$spacing/2);
+    @include clearfix;
+
+    &>li {
+      display: inline;
+      height: auto;
+      float: $default-float;
+      padding: 0 ($spacing/2) $spacing;
+=======
+    margin: 0 (-$spacing);
+    @include clearfix;
+
+    &>li {
+      display: block;
+      height: auto;
+      float: $default-float;
+      padding: 0 $spacing $spacing;
+>>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
+    }
+  }
+
+  @if $per-row {
+    &>li {
+      width: 100%/$per-row;
+<<<<<<< HEAD
+      padding: 0 ($spacing/2) $spacing;
+
+=======
+      padding: 0 $spacing $spacing;
+      
+>>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
+      &:nth-of-type(n) { clear: none; }
+      &:nth-of-type(#{$per-row}n+1) { clear: both; }
+    }
+  }
+
+}
+
+<<<<<<< HEAD
+@if $include-html-grid-classes {
+=======
+@if $block-grid-media-queries {
+>>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
+  /* Foundation Block Grids for below small breakpoint */
+  @media only screen {
+    [class*="block-grid-"] { @include block-grid; }
+
+    @for $i from 1 through $block-grid-elements {
+      .small-block-grid-#{($i)} {
+        @include block-grid($i,$block-grid-default-spacing,false);
+      }
+    }
+  }
+
+  /* Foundation Block Grids for above small breakpoint */
+  @media #{$small} {
+    /* Remove small grid clearing */
+    @for $i from 1 through $block-grid-elements {
+      .small-block-grid-#{($i)} > li:nth-of-type(#{$i}n+1) { clear: none; }
+    }
+    @for $i from 1 through $block-grid-elements {
+      .large-block-grid-#{($i)} {
+        @include block-grid($i,$block-grid-default-spacing,false);
+      }
+    }
+  }
+}

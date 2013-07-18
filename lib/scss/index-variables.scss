@@ -1,0 +1,105 @@
+@function power ($x, $n) {
+    $ret: 1;
+    
+    @if $n >= 0 {
+        @for $i from 1 through $n {
+            $ret: $ret * $x;
+        } 
+    } @else {
+        @for $i from $n to 0 {
+            $ret: $ret / $x;
+        }
+    }
+    
+    @return $ret;
+}
+
+@function modScale($basis, $degree) {
+  $pwr: power($gr, $degree);
+  @return $basis * $pwr;
+}
+
+$baseFont:              arial, helvetica, clean, sans-serif;
+$codeFont:              Monaco, Andale Mono, "Courier New", monospace;
+$quoteFont:             "Georgia", "Times";
+$serif:                 Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
+$sansSerif:             sans-serif;
+$codeFont:            Monaco, Andale Mono, "Courier New", monospace;
+$good:                #ebecd3;
+$cherryRed:           #F20D24;
+$burntRed:            hsl(0, 69%, 15%); // hsl(4, 72%, 30%)
+$froth:               #FFF;
+$milk:                $good;
+$espresso:            #440F0B;
+$chalkyGood:          #BABAA0; // hsl(60, 16%, 68%);//#B7B7A5;
+$cloudyGood:          #D2D2BC;
+$chilledGood:         hsla(62, 27%, 81%, .7);
+$confusedGood:        #dadbc1;
+$murkyGood:           #77776D;
+$footerEvil:          #210606;
+$evil:                $footerEvil;
+$blueBright:          #5bd3cd;
+$brownBright:         #ddc99e;
+$brownBold:           hsl(41, 48%, 50%);
+$brownMellow:         #623f30;
+// modular scale. this would be cleaner with sass
+$gr:                  1.61803398875;
+$textNumber:          18;
+$importantNumber:     190;
+$capFace:             "proxima-nova-condensed", $codeFont;
+$redWrathful:         lighten(hsl(0, 69%, 18%), 0%); // convert to rgb. i dunno if this works
+
+
+/* variable from foundation */
+$topbar-bg:           $redWrathful;
+$row-width:           (modScale($textNumber, 8) * 1px); //emCalc(1000px);
+
+$header-font-color: $redWrathful;
+$redMoody:            lighten($header-font-color, 15%);
+$primary-color: $redMoody;
+
+/*body styles */
+$body-bg: $good;
+$body-font-color: $murkyGood;
+$body-font-family: "proxima-nova", $baseFont;
+$body-font-weight: normal;
+$body-font-style: normal;
+
+
+$paragraph-font-family: $body-font-family;
+
+/*top bar styles */
+// Style the top bar dropdown elements
+ $topbar-dropdown-bg: lighten($redWrathful, 10%);
+ $topbar-dropdown-link-color: $brownMellow;
+// $topbar-dropdown-toggle-size: 5px;
+ $topbar-dropdown-toggle-color: $brownMellow;
+// $topbar-dropdown-toggle-alpha: .8;
+// $dropdown-label-color: #555;
+
+
+// We use these to control border styles
+// $thumb-border-style: solid;
+// $thumb-border-width: 4px;
+ $thumb-border-color: darken($good, 5%);
+ $thumb-box-shadow: 0 0 0 1px rgba($primary-color,.2);
+// $thumb-box-shadow-hover: 0 0 6px 1px rgba($primary-color,0.5);
+
+// Top menu icon styles
+ $topbar-menu-link-transform: uppercase;
+// $topbar-menu-link-font-size: emCalc(13px);
+// $topbar-menu-link-weight: bold;
+ $topbar-menu-link-color: $brownBright;
+ $topbar-menu-icon-color: $brownBright;
+ $topbar-menu-link-color-toggled: $brownMellow;
+ $topbar-menu-icon-color-toggled: $brownMellow;
+
+// Set the link colors and styles for top-level nav
+ $topbar-link-color: $brownBright;
+ $topbar-link-weight: normal;
+// $topbar-link-font-size: emCalc(13px);
+$topbar-link-hover-lightness: -15% !default; // Darken by 30%\
+
+$h3-font-size: 1.5em;
+$hr-border-color: $brownBright;
+$subheader-font-color: $redMoody;

@@ -1,0 +1,542 @@
+@import "index-base";
+
+/* HOME */
+
+.home-page{
+	.top-bar {
+		margin-bottom: 0;			
+	}
+}
+
+.to-french-press{
+	background: transparent url("/images/hario.svg") no-repeat center center;
+	@include background-size(auto 70%);
+	height: 1px * modScale($importantNumber, 0);
+	width: 100%;
+	@include hide-text;
+  @include transition;
+  @include inline-block;    
+  &:hover{
+    //opacity: 1;
+    @include transform(rotate(-15deg));
+    //@include rotate;
+  }    
+}
+
+.header{
+	color: $good;
+	//text-align: center;
+	text-transform: uppercase;
+	background: $burntRed url(img/25pbeans.png) fixed repeat;
+	border-bottom: 4.25px solid rgba(0, 0, 0, .4);
+	margin-bottom: 1em;
+		@include box-sizing;					
+		@extend .nopadding;
+		@extend .nomargin;
+		height: auto;
+		.what-is{
+			@extend .nomargin;
+			margin-top: 41px;
+			.logo, .logomark{ margin: 0 auto; }
+				.logo{
+			  	width: 270px;
+			  	.logomark{
+			    	height: 190px;
+			    	width: 190px;
+			  	}
+			}			
+			.where, .when{
+				line-height: 1em;
+				margin-top: 85px;
+				opacity: .8;
+				font-size: 11px;
+				span{
+					display: block;
+				}
+			}
+			.where{ 
+				text-align: right; 
+				@extend .left; 
+			}
+			.when{ 
+				@extend .right; 
+			}
+			.coffee-at-home{
+				margin: -9px auto (1px * modScale($textNumber, 1)); // because the text on the contained image is drawn
+				max-width: 1px * modScale($importantNumber, 2);
+				padding-right: 1em;
+				padding-left: 1em;
+				img{
+					max-width: 100%;
+				}
+			}
+			h1{
+				color: $good;
+				letter-spacing: 0;	
+				line-height: 1.4em;
+				margin-top: .5em;
+				font-size: 1px * modScale($importantNumber, -4);
+					&:before{
+						@extend .spacey;
+						height: 1px * modScale($textNumber, -4);
+					}							
+			}
+		}
+}
+
+.milky{
+	background-image: url("img/ptr-stripe-combined.svg");
+	background-repeat: repeat;
+	background-size: auto auto;
+	background-color: $milk;							
+}
+
+/* Drink Guide */
+#espresso-drinks-yum{
+	height: 30px;
+	position: absolute;
+	top: 0;
+}
+
+#espresso-drink-guide{
+	.drink-types{
+		border-bottom: 1px solid $cloudyGood;		
+		position: relative;
+		//text-align: center;
+		margin: 0 auto;
+		ul{
+			position: relative;
+			z-index: 400;
+			height: 1px * modScale($textNumber, 1);
+			@extend .nolist;
+			li{
+				@extend .inline;
+				&.current{
+					a{
+						color: $murkyGood;						
+					}
+				}
+				a{
+					color: $cherryRed;
+					padding-right: 27.723/2 * 1px;
+					padding-left: 27.723/2 * 1px;
+					text-decoration: none;
+					@include transition();	
+					&:hover{
+						color: $murkyGood;						
+					}
+				}
+			}
+		}
+		&:before{
+			@extend .spacey;			
+			height: 1px * modScale($importantNumber, -5);			
+		}
+	}
+	.espresso-illustration{
+		position: relative;
+		.cup{
+			position: relative;
+			@include flip(-1);
+			//background-color: fade(red, 20%);
+			.cup-inner{
+				height: 146px;
+				margin: 76.245px auto 27.723px;
+				position: relative;
+				width: 320px;
+				.cup-contents, .cup-structure{
+					left: 0;
+					position: absolute;					
+					width: 269px;			
+				}
+				.cup-structure{
+					background-image: url("img/big-cup-fake-mask-centered.svg");
+					background-size: auto 100%;
+					background-repeat: no-repeat;
+					background-position: center center;
+					height: 146px;
+					position: absolute;
+					z-index: 200;
+					//background-color: fade(blue, 20%);
+
+				}
+				.cup-contents{
+					 	bottom: 0;
+						height: 128px;					
+						overflow: hidden; // fixes firefox bug
+						z-index: 150;
+  					@include mask-image("img/big-cup-filler-centered.svg");						
+						>div{
+						  -webkit-backface-visibility: hidden;
+							height: 15px;
+							position: relative;
+							width: 100%;
+								@include transition(0.6s);
+						}
+						#cup-bg{
+							height: 300px; 
+							background-color: $chilledGood;	
+							z-index: 100;					
+						}
+						#froth{
+							background-color: $froth;
+							height: 15px;
+							z-index: 400;
+						}
+						#milk{
+							@extend .milky;
+							height: 60px;
+						}
+						#espresso{
+							background-color: $espresso;
+							background-image: url("img/spro-swirl.png");
+							background-repeat: repeat-x;							
+							height: 30px;
+							@include transition(2.0s, ease-out);
+							&:after, &:before{
+								background-size: 100% 100%;
+								background-repeat: no-repeat;
+								background-position: center center;								
+								bottom: -9px;
+								content: " ";
+								height: 9px;
+								position: absolute;
+								width: 12px;
+								z-index: 30;
+								@extend .block;
+							}
+							&:after{
+								background-image: url("img/spro-meniscus-left.svg");
+								left: 217px;
+							}
+							&:before{
+								background-image: url("img/spro-meniscus-right.svg");								
+								left: 106px;
+							}
+
+							// the background position of this is set by javascript
+						}
+						#froth{
+							&:after{
+								background-image: url("img/crema.svg");
+								background-size: auto 100%;
+								background-repeat: repeat-x;
+								//background-position: center center;		
+								bottom: -4px;						
+								content: " ";
+								left: 0;
+								height: 15px;
+								position: absolute;
+								right: 0;
+								z-index: 35;
+								@extend .block;
+							}
+						}
+				}
+			}
+		}
+		.equation{
+			text-align: center;
+			.key{
+				color: $murkyGood;
+				font-style: italic;
+				font-weight: 300;
+				position: relative;				
+				width: 1px * modScale($textNumber, 4);				
+				@include inline-block;
+				font-size: 1px * modScale($textNumber, -1);				
+				.swatch{
+					margin: 0 auto 4px;	
+					width: 1px * modScale($importantNumber, -4);
+					height: 1px * modScale($importantNumber, -4);
+					@include box-sizing;					
+					@include rounded(27.723px);
+					&.add{
+						&:before{
+							color: $chalkyGood;
+							content: "+";
+							left: -5px;
+							font-size: 18px;
+							font-style: normal;
+							position: absolute;
+							top: 2px;							
+						}						
+					}
+					&.equal{
+						&:before{
+							color: $chalkyGood;
+							content: "=";
+							left: 0;
+							font-size: 18px;
+							font-style: normal;							
+							position: absolute;
+						}						
+					}					
+					&.froth{
+						background: $froth;
+						@include drop-shadow(0, 0px, 3px, .3)								
+					}
+					&.milk{
+						@extend .milky;
+						@include drop-shadow(0, 0px, 3px, .3)
+					}
+					&.espresso{
+						background: $espresso;
+					}
+					&.total{
+						border: 3px solid $chalkyGood;
+					}
+				}				
+			}
+		}
+	}
+	.espresso-description{
+		margin-top: 27.723px;
+		text-align: center;
+	}	
+}
+
+
+
+/* ==========================================================================
+/* -- Mobile Devices (Layout, Modifications, etc)
+   ========================================================================== */
+@media only screen and (max-width: 768px) {
+	// html, body {
+	//   height: 100%; // for beans background
+	// }
+	.social-footer{
+		width: 100%;
+	}		
+	#espresso-drink-guide {
+		.drink-types{
+			padding-bottom: 14px;
+			ul{
+				height: auto;
+				text-transform: uppercase;
+				li{
+					margin: 4.045px auto;
+					// these two rules to center drink names over drink on mobile
+					@include box-sizing;
+					@extend .block;
+					&.current{
+						a{ @extend .milky; }
+					}
+				}
+			}				
+		}
+		.espresso-illustration{
+				.cup{
+					.cup-inner{
+						margin-top: 27.723px;
+						width: 269px;
+					}
+				}
+		}
+	}
+	.espresso-description{
+			p:last-child{ margin-bottom: 0; }
+			&:nth-child(odd):after{
+				background-image: url("img/leaf-points-left.svg");				
+			}
+			&:after{
+				background-image: url("img/leaf-points-right.svg");
+				background-size: 18px*2.5 6.425px*2.5;
+				background-repeat: no-repeat;
+				background-position: center center;
+				//background-color: blue;
+				content: " ";						
+				height: 27.723px;
+				width: 100%;
+				@extend .block;
+			}
+	}
+	.cup{ overflow: hidden;	}
+	// h1{
+	// 	letter-spacing: 0;	
+	// 	line-height: 56px;
+	// 	font-size: 60px; //1px * modScale($textNumber, 2.5);							
+	// 		&:before{
+	// 			@extend .spacey;
+	// 			height: 1px * modScale($textNumber, -3);
+
+	// 		}	
+	// 		&:after{
+	// 			@extend .spacey;
+	// 			height: 1px * modScale($textNumber, 0);
+
+	// 		}													
+	// }				
+	.header{
+		.what-is{
+			.coffee-at-home{
+				margin-top: 10px;
+			}			
+		}
+	}
+
+
+} /* End Mobile Media Query */
+
+/* ==========================================================================
+/* -- Tablet Devices (Layout, Modifications, etc)
+   ========================================================================== */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+		// h1{
+		// 	font-size: 1px * modScale($textNumber, 2);
+		// }
+
+
+// ==========================================================================
+// -- Custom Website Styles for Tablet Devices
+// ==========================================================================
+
+// Your custom website styles for tablet devices go here...
+
+
+
+
+} /* End Tablet Media Query */
+
+/* ==========================================================================
+/* -- Bigger than Mobile Devices (Layout, Modifications, etc)
+   ========================================================================== */
+@media only screen and (min-width: 768px) {
+	.header{
+		height: 1px * modScale($importantNumber, 2);
+		.what-is{
+			margin-top: 81px;
+		}
+	}
+	#highlight{
+		background: $confusedGood;
+		height: 36px;
+		position: absolute;
+		top: 11px;
+		left: -99999px;
+		width: 100px;
+		@include transition;	
+		&:after{
+			content: "";
+			position: absolute;
+			bottom: -14px;
+			left: 0;
+			width: 0;
+			height: 0;
+			border-left: 50px solid transparent;
+			border-right: 50px solid transparent;
+			border-top: 14px solid $confusedGood;
+		}	
+	}	
+
+	.espresso-description{ 
+		display: none; 
+		h2{
+			background-image: url("img/leaf-points-left.svg"), url("img/leaf-points-right.svg");
+			background-size: 18*2.5*1px 6.425*2.5*1px, 18*2.5*1px 6.425*2.5*1px;
+			background-repeat: no-repeat, no-repeat;
+			background-position: left center, center right;	
+			padding-left: 50px;
+			padding-right: 53px; // for drop shadow adjustment
+			@include box-sizing;
+			@include inline-block;
+			}
+	}
+
+	.no-cssmasks{
+		#espresso-drink-guide .espresso-illustration .cup .cup-inner{
+			.cup-contents .drink-layer{
+				width: 99%; // fixes: the espresso div was extending beyond the cup
+			}
+			.cup-structure{
+				background-image: url("img/big-cup-fake-mask.svg");		
+			}
+		}
+	}
+
+	#espresso-drink-guide{
+		.espresso-illustration .cup .cup-inner{
+			.cup-structure{
+				background-image: url("img/big-cup.svg");
+			}
+			.cup-contents{
+  			@include mask-image("img/big-cup-filler.svg");				
+			}
+		} 
+
+		.drink-types{
+			min-width: 550px; // this would get bigger with more drinks
+		}
+
+		&[data-drink="espresso"]{
+				.espresso-description:not(.espresso){
+					display: none;
+				}
+				.espresso-description.espresso{
+					display: block;
+				}
+
+			}
+			&[data-drink="cortado"]{
+				.espresso-description:not(.cortado){
+					display: none;
+				}
+				.espresso-description.cortado{
+					display: block;
+				}
+			}
+
+			&[data-drink="macchiato"]{
+				.espresso-description:not(.macchiato){
+					display: none;
+				}
+				.espresso-description.macchiato{
+					display: block;
+				}
+			}
+
+			&[data-drink="cappuccino"]{
+				.espresso-description:not(.cappuccino){
+					display: none;
+				}
+				.espresso-description.cappuccino{
+					display: block;
+				}
+			}
+
+			&[data-drink="latte"]{
+				.espresso-description:not(.latte){
+					-webkit-filter: blur(0px);
+					opacity: 0;
+				}
+				.espresso-description.latte{
+					display: block;
+					-webkit-filter: blur(0px);
+					opacity: 1;
+				}
+			}
+
+			&[data-espresso-factor="0"]{
+				.key.espresso{
+					opacity: 0;
+					height: 0 !important;
+					width: 0 !important;
+				}
+			}
+			&[data-milk-factor="0"]{
+				.key.milk{
+					opacity: 0;
+					height: 0 !important;
+					width: 0 !important;
+				}
+			}
+			&[data-froth-factor="0"]{
+				.key.froth{
+					opacity: 0;
+					height: 0 !important;
+					width: 0 !important;
+				}		
+			}	
+	}
+
+} /* End Mobile Media Query */
