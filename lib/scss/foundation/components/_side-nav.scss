@@ -1,7 +1,6 @@
 //
 // Side Nav Variables
 //
-<<<<<<< HEAD
 $include-html-nav-classes: $include-html-classes !default;
 
 // We use this to control padding.
@@ -11,21 +10,10 @@ $side-nav-padding: emCalc(14, 0) !default;
 $side-nav-list-type: none !default;
 $side-nav-list-position: inside !default;
 $side-nav-list-margin: emCalc(0, 0, 7, 0) !default;
-=======
-
-// We use this to control padding.
-$side-nav-padding:           emCalc(14px) 0 !default;
-
-// We use these to control list styles.
-$side-nav-list-type:         none !default;
-$side-nav-list-position:     inside !default;
-$side-nav-list-margin:       0 0 emCalc(7px) 0 !default;
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
 // We use these to control link styles.
 $side-nav-link-color: $primary-color !default;
 $side-nav-link-color-active: lighten(#000, 30%) !default;
-<<<<<<< HEAD
 $side-nav-font-size: emCalc(14) !default;
 $side-nav-font-weight: bold !default;
 
@@ -33,15 +21,6 @@ $side-nav-font-weight: bold !default;
 $side-nav-divider-size: 1px !default;
 $side-nav-divider-style: solid !default;
 $side-nav-divider-color: darken(#fff, 10%) !default;
-=======
-$side-nav-font-size:         emCalc(14px) !default;
-$side-nav-font-weight:       bold !default;
-
-// We use these to control border styles
-$side-nav-divider-size:      1px !default;
-$side-nav-divider-style:     solid !default;
-$side-nav-divider-color:     darken(#fff, 10%) !default;
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
 
 //
@@ -66,11 +45,7 @@ $side-nav-divider-color:     darken(#fff, 10%) !default;
       color: $link-color;
     }
 
-<<<<<<< HEAD
     &.active > a:first-child {
-=======
-    &.active a {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       color: $side-nav-link-color-active;
       font-weight: $side-nav-font-weight;
     }

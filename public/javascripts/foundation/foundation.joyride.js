@@ -1,20 +1,12 @@
 /*jslint unparam: true, browser: true, indent: 2 */
 
-<<<<<<< HEAD
 (function ($, window, document, undefined) {
-=======
-;(function ($, window, document, undefined) {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
   'use strict';
 
   Foundation.libs.joyride = {
     name: 'joyride',
 
-<<<<<<< HEAD
     version : '4.2.2',
-=======
-    version : '4.1.2',
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
     defaults : {
       expose               : false,      // turn on or off the expose feature
@@ -49,12 +41,8 @@
         modal   : '<div class="joyride-modal-bg"></div>',
         expose  : '<div class="joyride-expose-wrapper"></div>',
         exposeCover: '<div class="joyride-expose-cover"></div>'
-<<<<<<< HEAD
       },
       exposeAddClass : '' // One or more space-separated class names to be added to exposed element
-=======
-      }
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
     },
 
     settings : {},
@@ -69,11 +57,7 @@
         $.extend(true, this.settings, this.defaults, options);
       }
 
-<<<<<<< HEAD
       if (typeof method !== 'string') {
-=======
-      if (typeof method != 'string') {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
         if (!this.settings.init) this.events();
 
         return this.settings.init;
@@ -138,11 +122,7 @@
           int_settings_count = integer_settings.length;
 
       if (!this.settings.init) this.init();
-<<<<<<< HEAD
 
-=======
-      
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       // non configureable settings
       this.settings.$content_el = $this;
       this.settings.$body = $(this.settings.tipContainer);
@@ -370,7 +350,6 @@
       if (!this.settings.modal) {
         $('.joyride-modal-bg').hide();
       }
-<<<<<<< HEAD
 
       // Prevent scroll bouncing...wait to remove from layout
       this.settings.$current_tip.css('visibility', 'hidden');
@@ -378,9 +357,6 @@
         this.hide();
         this.css('visibility', 'visible');
       }, this.settings.$current_tip), 0);
-=======
-      this.settings.$current_tip.hide();
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       this.settings.postStepCallback(this.settings.$li.index(),
         this.settings.$current_tip);
     },
@@ -578,25 +554,15 @@
 
     show_modal : function () {
       if (!this.settings.$next_tip.data('closed')) {
-<<<<<<< HEAD
         var joyridemodalbg =  $('.joyride-modal-bg');
         if (joyridemodalbg.length < 1) {
-=======
-        if ($('.joyride-modal-bg').length < 1) {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
           $('body').append(this.settings.template.modal).show();
         }
 
         if (/pop/i.test(this.settings.tipAnimation)) {
-<<<<<<< HEAD
             joyridemodalbg.show();
         } else {
             joyridemodalbg.fadeIn(this.settings.tipAnimationFadeSpeed);
-=======
-          $('.joyride-modal-bg').show();
-        } else {
-          $('.joyride-modal-bg').fadeIn(this.settings.tipAnimationFadeSpeed);
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
         }
       }
     },
@@ -606,10 +572,7 @@
           exposeCover,
           el,
           origCSS,
-<<<<<<< HEAD
           origClasses,
-=======
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
           randId = 'expose-'+Math.floor(Math.random()*10000);
 
       if (arguments.length > 0 && arguments[0] instanceof $) {
@@ -635,37 +598,25 @@
         width: this.outerWidth(el, true),
         height: this.outerHeight(el, true)
       });
-<<<<<<< HEAD
 
-=======
-      
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       exposeCover = $(this.settings.template.exposeCover);
 
       origCSS = {
         zIndex: el.css('z-index'),
         position: el.css('position')
       };
-<<<<<<< HEAD
       
       origClasses = el.attr('class') == null ? '' : el.attr('class');
 
       el.css('z-index',parseInt(expose.css('z-index'))+1);
-=======
-
-      el.css('z-index',expose.css('z-index')*1+1);
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
       if (origCSS.position == 'static') {
         el.css('position','relative');
       }
 
       el.data('expose-css',origCSS);
-<<<<<<< HEAD
       el.data('orig-class', origClasses);
       el.attr('class', origClasses + ' ' + this.settings.exposeAddClass);
-=======
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
       exposeCover.css({
         top: el.offset().top,
@@ -687,10 +638,7 @@
           el,
           expose ,
           origCSS,
-<<<<<<< HEAD
           origClasses,
-=======
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
           clearAll = false;
 
       if (arguments.length > 0 && arguments[0] instanceof $) {
@@ -736,13 +684,10 @@
           el.css('position', origCSS.position);
         }
       }
-<<<<<<< HEAD
       
       origClasses = el.data('orig-class');
       el.attr('class', origClasses);
       el.removeData('orig-classes');
-=======
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
       el.removeData('expose');
       el.removeData('expose-z-index');
@@ -883,10 +828,7 @@
       this.settings.$current_tip.hide();
       this.settings.postStepCallback(this.settings.$li.index(), this.settings.$current_tip);
       this.settings.postRideCallback(this.settings.$li.index(), this.settings.$current_tip);
-<<<<<<< HEAD
       $('.joyride-tip-guide').remove();
-=======
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
     },
 
     outerHTML : function (el) {
@@ -901,14 +843,8 @@
       $('.joyride-tip-guide, .joyride-modal-bg').remove();
       clearTimeout(this.settings.automate);
       this.settings = {};
-<<<<<<< HEAD
     },
 
     reflow : function () {}
   };
 }(Foundation.zj, this, this.document));
-=======
-    }
-  };
-}(Foundation.zj, this, this.document));
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2

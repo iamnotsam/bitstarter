@@ -1,18 +1,11 @@
 //
 // Block Grid Variables
 //
-<<<<<<< HEAD
 $include-html-grid-classes: $include-html-classes !default;
 
 // We use this to control the maximum number of block grid elements per row
 $block-grid-elements: 12 !default;
 $block-grid-default-spacing: emCalc(20) !default;
-=======
-
-// We use this to control the maximum number of block grid elements per row
-$block-grid-elements: 12 !default;
-$block-grid-default-spacing: 10px !default;
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
 // Enables media queries for block-grid classes. Set to false if writing semantic HTML.
 $block-grid-media-queries: true !default;
@@ -28,7 +21,6 @@ $block-grid-media-queries: true !default;
   @if $base-style {
     display: block;
     padding: 0;
-<<<<<<< HEAD
     margin: 0 (-$spacing/2);
     @include clearfix;
 
@@ -37,29 +29,14 @@ $block-grid-media-queries: true !default;
       height: auto;
       float: $default-float;
       padding: 0 ($spacing/2) $spacing;
-=======
-    margin: 0 (-$spacing);
-    @include clearfix;
-
-    &>li {
-      display: block;
-      height: auto;
-      float: $default-float;
-      padding: 0 $spacing $spacing;
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
     }
   }
 
   @if $per-row {
     &>li {
       width: 100%/$per-row;
-<<<<<<< HEAD
       padding: 0 ($spacing/2) $spacing;
 
-=======
-      padding: 0 $spacing $spacing;
-      
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       &:nth-of-type(n) { clear: none; }
       &:nth-of-type(#{$per-row}n+1) { clear: both; }
     }
@@ -67,11 +44,7 @@ $block-grid-media-queries: true !default;
 
 }
 
-<<<<<<< HEAD
 @if $include-html-grid-classes {
-=======
-@if $block-grid-media-queries {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
   /* Foundation Block Grids for below small breakpoint */
   @media only screen {
     [class*="block-grid-"] { @include block-grid; }

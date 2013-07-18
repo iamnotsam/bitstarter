@@ -1,7 +1,6 @@
 //
 // Switch Variables
 //
-<<<<<<< HEAD
 $include-html-form-classes: $include-html-classes !default;
 
 // Controlling border styles and background colors for the switch container
@@ -34,39 +33,6 @@ $switch-paddle-transition-speed: .1s !default;
 $switch-paddle-transition-ease: ease-out !default;
 $switch-positive-color: lighten($success-color, 50%) !default;
 $switch-negative-color: #f5f5f5 !default;
-=======
-
-// Controlling border styles and background colors for the switch container
-$switch-border-color:             darken(#fff, 20%) !default;
-$switch-border-style:             solid !default;
-$switch-border-width:             1px !default;
-$switch-bg:                       #fff !default;
-
-// We use these to control the switch heights for our default classes
-$switch-height-tny:               22px !default;
-$switch-height-sml:               28px !default;
-$switch-height-med:               36px !default;
-$switch-height-lrg:               44px !default;
-$switch-bottom-margin:            emCalc(20px) !default;
-
-// We use these to control default font sizes for our classes.
-$switch-font-size-tny:            11px !default;
-$switch-font-size-sml:            12px !default;
-$switch-font-size-med:            14px !default;
-$switch-font-size-lrg:            17px !default;
-$switch-label-side-padding:       6px !default;
-
-// We use these to style the switch-paddle
-$switch-paddle-bg:                #fff !default;
-$switch-paddle-fade-to-color:     darken($switch-paddle-bg, 10%) !default;
-$switch-paddle-border-color:      darken($switch-paddle-bg, 35%) !default;
-$switch-paddle-border-width:      1px !default;
-$switch-paddle-border-style:      solid !default;
-$switch-paddle-transition-speed:  .1s !default;
-$switch-paddle-transition-ease:   ease-out !default;
-$switch-positive-color:           lighten($success-color, 50%) !default;
-$switch-negative-color:           #f5f5f5 !default;
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
 // Outline Style for tabbing through switches
 $switch-label-outline:            1px dotted #888 !default;
@@ -113,28 +79,17 @@ $switch-label-outline:            1px dotted #888 !default;
     opacity: 0;
     width: 100%;
     height: 100%;
-<<<<<<< HEAD
     -moz-appearance: none;
-=======
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
     // Hover and focus styles for the paddle
     &:hover,
     &:focus {
-<<<<<<< HEAD
       cursor: $cursor-pointer-value;
-=======
-      cursor: pointer;
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
     }
   }
 
   // The toggle area for radio switches. We call is a paddle.
-<<<<<<< HEAD
   span:last-child {
-=======
-  & > span {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
     position: absolute;
     top: -1px;
     #{$default-float}: -1px;
@@ -172,7 +127,6 @@ $switch-label-outline:            1px dotted #888 !default;
 
   // Bugfix for older Webkit, including mobile Webkit. Adapted from:
   // http://css-tricks.com/webkit-sibling-bug/
-<<<<<<< HEAD
   @if $experimental { -webkit-animation: webkitSiblingBugfix infinite 1s; }
 
   form.custom & .hidden-field {
@@ -180,10 +134,6 @@ $switch-label-outline:            1px dotted #888 !default;
     position: absolute;
     visibility: visible;
   }
-=======
-  -webkit-animation: webkitSiblingBugfix infinite 1s;
-
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 }
 
 // We use this mixin to create the size styles for switches.
@@ -192,32 +142,20 @@ $switch-label-outline:            1px dotted #888 !default;
   height: $height;
 
   label {
-<<<<<<< HEAD
     padding: emCalc(0, $switch-label-side-padding);
-=======
-    padding: 0 emCalc($switch-label-side-padding);
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
     line-height: $line-height;
     font-size: emCalc($font-size);
   }
 
   input {
     // Move the paddle to the right position
-<<<<<<< HEAD
     &:first-of-type:checked ~ span:last-child {
-=======
-    &:first-of-type:checked ~ span {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       #{$default-float}: 100%;
       margin-#{$default-float}: emCalc(-$height + 1px);
     }
   }
 
-<<<<<<< HEAD
   span:last-child {
-=======
-  & > span {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
     width: emCalc($height);
     height: emCalc($height);
   }
@@ -231,7 +169,6 @@ $switch-label-outline:            1px dotted #888 !default;
     background: $switch-bg;
     border-color: $switch-border-color;
 
-<<<<<<< HEAD
     span:last-child {
       border-color: darken($paddle-bg, 30%);
       background: $paddle-bg;
@@ -248,20 +185,6 @@ $switch-label-outline:            1px dotted #888 !default;
                             -2px 0 10px 0 rgba(0,0,0,0.07),
                             -1000px 0 0 1000px $negative-color;
       }
-=======
-    & > span {
-      border-color: darken($paddle-bg, 30%);
-      background: $paddle-bg;
-      background: -moz-linear-gradient(top, $paddle-bg 0%, darken($paddle-bg, 5%) 100%);
-      background: -webkit-linear-gradient(top, $paddle-bg 0%, darken($paddle-bg, 5%) 100%);
-      background: linear-gradient(to bottom, $paddle-bg 0%, darken($paddle-bg, 5%) 100%);
-
-      // Building the alternating colored sides of the switch
-      -webkit-box-shadow: 2px 0 10px 0 rgba(0,0,0,0.07),
-                          1000px 0 0 1000px $positive-color,
-                          -2px 0 10px 0 rgba(0,0,0,0.07),
-                          -1000px 0 0 1000px $negative-color;
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       box-shadow:         2px 0 10px 0 rgba(0,0,0,0.07),
                           1000px 0 0 980px $positive-color,
                           -2px 0 10px 0 rgba(0,0,0,0.07),
@@ -270,19 +193,12 @@ $switch-label-outline:            1px dotted #888 !default;
 
     &:hover,
     &:focus {
-<<<<<<< HEAD
       span:last-child {
         background: $paddle-bg;
         @if $experimental {
           background: -moz-linear-gradient(top, $paddle-bg 0%, darken($paddle-bg, 10%) 100%);
           background: -webkit-linear-gradient(top, $paddle-bg 0%, darken($paddle-bg, 10%) 100%);
         }
-=======
-      & > span {
-        background: $paddle-bg;
-        background: -moz-linear-gradient(top, $paddle-bg 0%, darken($paddle-bg, 10%) 100%);
-        background: -webkit-linear-gradient(top, $paddle-bg 0%, darken($paddle-bg, 10%) 100%);
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
         background: linear-gradient(to bottom, $paddle-bg 0%, darken($paddle-bg, 10%) 100%);
       }
     }
@@ -293,19 +209,11 @@ $switch-label-outline:            1px dotted #888 !default;
   // Setting up the radius for switches
   @if $radius == true {
     @include radius(4px);
-<<<<<<< HEAD
     span:last-child { @include radius(3px); }
   }
   @else if $radius {
     @include radius($radius);
     span:last-child { @include radius($radius - 1px); }
-=======
-    & > span { @include radius(3px); }
-  }
-  @else if $radius {
-    @include radius($radius);
-    & > span { @include radius($radius - 1px); }
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
   }
 
 }
@@ -317,11 +225,7 @@ $switch-label-outline:            1px dotted #888 !default;
   @include switch-style($paddle-bg, $positive-color, $negative-color, $radius, $base-style);
 }
 
-<<<<<<< HEAD
 @if $include-html-form-classes != false {
-=======
-@if $include-html-button-classes != false {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
   /* Foundation Switches */
   @media only screen {
@@ -341,31 +245,18 @@ $switch-label-outline:            1px dotted #888 !default;
 
       // Add a radius to the switch
       &.radius { @include radius(4px);
-<<<<<<< HEAD
         span:last-child{ @include radius(3px); }
-=======
-        & > span { @include radius(3px); }
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       }
 
       // Make the switch completely round, like a pill
       &.round { @include radius(1000px);
-<<<<<<< HEAD
         span:last-child { @include radius(999px); }
         label { padding: emCalc(0, $switch-label-side-padding + 3); }
-=======
-        & > span { @include radius(999px); }
-        label { padding: 0 emCalc($switch-label-side-padding + 3px); }
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       }
 
     }
 
-<<<<<<< HEAD
     @if $experimental { @-webkit-keyframes webkitSiblingBugfix { from { position: relative; } to { position: relative; } } }
-=======
-    @-webkit-keyframes webkitSiblingBugfix { from { position: relative; } to { position: relative; } }
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
   }
 }

@@ -156,7 +156,6 @@
 		}
 	}
 
-<<<<<<< HEAD
 }(this, document, Foundation.zj));
 
 ;(function ($, window, document, undefined) {
@@ -178,6 +177,3 @@
     }
   };
 }(Foundation.zj, this, this.document));
-=======
-}(this, document, Foundation.zj));
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2

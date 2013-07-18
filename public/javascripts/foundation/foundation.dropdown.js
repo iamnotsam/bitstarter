@@ -6,39 +6,24 @@
   Foundation.libs.dropdown = {
     name : 'dropdown',
 
-<<<<<<< HEAD
     version : '4.2.0',
 
     settings : {
       activeClass: 'open',
       is_hover: false,
-=======
-    version : '4.1.3',
-
-    settings : {
-      activeClass: 'open',
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       opened: function(){},
       closed: function(){}
     },
 
     init : function (scope, method, options) {
       this.scope = scope || this.scope;
-<<<<<<< HEAD
       Foundation.inherit(this, 'throttle scrollLeft data_options');
-=======
-      Foundation.inherit(this, 'throttle scrollLeft');
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
       if (typeof method === 'object') {
         $.extend(true, this.settings, method);
       }
 
-<<<<<<< HEAD
       if (typeof method !== 'string') {
-=======
-      if (typeof method != 'string') {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
         if (!this.settings.init) {
           this.events();
@@ -55,7 +40,6 @@
 
       $(this.scope)
         .on('click.fndtn.dropdown', '[data-dropdown]', function (e) {
-<<<<<<< HEAD
           var settings = $.extend({}, self.settings, self.data_options($(this)));
           e.preventDefault();
 
@@ -69,19 +53,11 @@
           var target = $('[data-dropdown="' + $(this).attr('id') + '"]'),
               settings = $.extend({}, self.settings, self.data_options(target));
           if (settings.is_hover) self.close.call(self, $(this));
-=======
-            e.preventDefault();
-            self.toggle($(this));
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
         })
         .on('opened.fndtn.dropdown', '[data-dropdown-content]', this.settings.opened)
         .on('closed.fndtn.dropdown', '[data-dropdown-content]', this.settings.closed);
 
-<<<<<<< HEAD
       $(document).on('click.fndtn.dropdown', function (e) {
-=======
-      $('body').on('click.fndtn.dropdown', function (e) {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
         var parent = $(e.target).closest('[data-dropdown-content]');
 
         if ($(e.target).data('dropdown')) {
@@ -129,10 +105,7 @@
       if (dropdown.hasClass(this.settings.activeClass)) {
         this.close.call(this, dropdown);
       } else {
-<<<<<<< HEAD
         this.close.call(this, $('[data-dropdown-content]'))
-=======
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
         this.open.call(this, dropdown, target);
       }
     },
@@ -147,14 +120,9 @@
     },
 
     css : function (dropdown, target) {
-<<<<<<< HEAD
       var offset_parent = dropdown.offsetParent();
       // temporary workaround until 4.2
       if (offset_parent.length > 0 && /body/i.test(dropdown.offsetParent()[0].nodeName)) {
-=======
-      // temporary workaround until 4.2
-      if (/body/i.test(dropdown.offsetParent()[0].nodeName)) {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
         var position = target.offset();
         position.top -= dropdown.offsetParent().offset().top;
         position.left -= dropdown.offsetParent().offset().left;
@@ -173,12 +141,9 @@
       } else {
         if (!Foundation.rtl && $(window).width() > this.outerWidth(dropdown) + target.offset().left) {
           var left = position.left;
-<<<<<<< HEAD
           if (dropdown.hasClass('right')) {
             dropdown.removeClass('right');
           }
-=======
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
         } else {
           if (!dropdown.hasClass('right')) {
             dropdown.addClass('right');
@@ -206,12 +171,8 @@
       $(window).off('.fndtn.dropdown');
       $('[data-dropdown-content]').off('.fndtn.dropdown');
       this.settings.init = false;
-<<<<<<< HEAD
     },
 
     reflow : function () {}
-=======
-    }
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
   };
 }(Foundation.zj, this, this.document));

@@ -6,19 +6,12 @@
   Foundation.libs.orbit = {
     name: 'orbit',
 
-<<<<<<< HEAD
     version: '4.2.0',
 
     settings: {
       timer_speed: 10000,
       pause_on_hover: true,
       resume_on_mouseout: false,
-=======
-    version: '4.1.0',
-
-    settings: {
-      timer_speed: 10000,
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       animation_speed: 500,
       bullets: true,
       stack_on_small: true,
@@ -48,14 +41,11 @@
         $.extend(true, self.settings, method);
       }
 
-<<<<<<< HEAD
       if ($(scope).is('[data-orbit]')) {
         var scoped_self = $.extend(true, {}, self);
         scoped_self._init(idx, el);
       }
 
-=======
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       $('[data-orbit]', scope).each(function(idx, el) {
         var scoped_self = $.extend(true, {}, self);
         scoped_self._init(idx, el);
@@ -136,11 +126,7 @@
       $slides_container.append($slides.first().clone().attr('data-orbit-slide',''));
       $slides_container.prepend($slides.last().clone().attr('data-orbit-slide',''));
       // Make the first "real" slide active
-<<<<<<< HEAD
       $slides_container.css(Foundation.rtl ? 'marginRight' : 'marginLeft', '-100%');
-=======
-      $slides_container.css('marginLeft', '-100%');
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       $slides.first().addClass(self.settings.active_slide_class);
 
       self._init_events($slides_container);
@@ -182,7 +168,6 @@
         });
 
       $container
-<<<<<<< HEAD
         .on('mouseenter.fndtn.orbit', function(e) {
           if (self.settings.pause_on_hover) {
             self._stop_timer($slides_container);
@@ -193,8 +178,6 @@
             self._start_timer($slides_container);
           }
         })
-=======
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
         .on('orbit:after-slide-change.fndtn.orbit', function(e, orbit) {
           var $slide_number = $container.find('.' + self.settings.slide_number_class);
 
@@ -202,20 +185,12 @@
             $slide_number.replaceWith(self._slide_number_html(orbit.slide_number, orbit.total_slides));
           }
         })
-<<<<<<< HEAD
         .on('orbit:next-slide.fndtn.orbit click.fndtn.orbit', '.' + self.settings.next_class.split(" ").join("."), function(e) {
-=======
-        .on('orbit:next-slide.fndtn.orbit click.fndtn.orbit', '.' + self.settings.next_class, function(e) {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
           e.preventDefault();
           self._reset_timer($slides_container, true);
           self._goto($slides_container, 'next', function() {});
         })
-<<<<<<< HEAD
         .on('orbit:prev-slide.fndtn.orbit click.fndtn.orbit', '.' + self.settings.prev_class.split(" ").join("."), function(e) {
-=======
-        .on('orbit:prev-slide.fndtn.orbit click.fndtn.orbit', '.' + self.settings.prev_class, function(e) {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
           e.preventDefault();
           self._reset_timer($slides_container, true);
           self._goto($slides_container, 'prev', function() {});

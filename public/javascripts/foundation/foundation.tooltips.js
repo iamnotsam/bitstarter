@@ -6,21 +6,14 @@
   Foundation.libs.tooltips = {
     name: 'tooltips',
 
-<<<<<<< HEAD
     version : '4.2.2',
-=======
-    version : '4.1.0',
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
     settings : {
       selector : '.has-tip',
       additionalInheritableClasses : [],
       tooltipClass : '.tooltip',
       appendTo: 'body',
-<<<<<<< HEAD
       'disable-for-touch': false,
-=======
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       tipTemplate : function (selector, content) {
         return '<span data-selector="' + selector + '" class="' 
           + Foundation.libs.tooltips.settings.tooltipClass.substring(1) 
@@ -31,7 +24,6 @@
     cache : {},
 
     init : function (scope, method, options) {
-<<<<<<< HEAD
       Foundation.inherit(this, 'data_options');
       var self = this;
 
@@ -42,32 +34,16 @@
       }
 
       if (typeof method !== 'string') {
-=======
-      var self = this;
-      this.scope = scope || this.scope;
-
-      if (typeof method === 'object') {
-        $.extend(true, this.settings, method);
-      }
-
-      if (typeof method != 'string') {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
         if (Modernizr.touch) {
           $(this.scope)
             .on('click.fndtn.tooltip touchstart.fndtn.tooltip touchend.fndtn.tooltip', 
               '[data-tooltip]', function (e) {
-<<<<<<< HEAD
               var settings = $.extend({}, self.settings, self.data_options($(this)));
               if (!settings['disable-for-touch']) {
                 e.preventDefault();
                 $(settings.tooltipClass).hide();
                 self.showOrCreateTip($(this));
               }
-=======
-              e.preventDefault();
-              $(self.settings.tooltipClass).hide();
-              self.showOrCreateTip($(this));
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
             })
             .on('click.fndtn.tooltip touchstart.fndtn.tooltip touchend.fndtn.tooltip', 
               this.settings.tooltipClass, function (e) {
@@ -80,11 +56,7 @@
               '[data-tooltip]', function (e) {
               var $this = $(this);
 
-<<<<<<< HEAD
               if (/enter|over/i.test(e.type)) {
-=======
-              if (e.type === 'mouseover' || e.type === 'mouseenter') {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
                 self.showOrCreateTip($this);
               } else if (e.type === 'mouseout' || e.type === 'mouseleave') {
                 self.hide($this);
@@ -114,11 +86,7 @@
           tip = null;
 
       if (selector) {
-<<<<<<< HEAD
         tip = $('span[data-selector="' + selector + '"]' + this.settings.tooltipClass);
-=======
-        tip = $('span[data-selector=' + selector + ']' + this.settings.tooltipClass);
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       }
 
       return (typeof tip === 'object') ? tip : false;
@@ -137,11 +105,7 @@
     },
 
     create : function ($target) {
-<<<<<<< HEAD
       var $tip = $(this.settings.tipTemplate(this.selector($target), $('<div></div>').html($target.attr('title')).html())),
-=======
-      var $tip = $(this.settings.tipTemplate(this.selector($target), $('<div>').html($target.attr('title')).html())),
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
           classes = this.inheritable_classes($target);
 
       $tip.addClass(classes).appendTo(this.settings.appendTo);
@@ -237,12 +201,8 @@
       $(this.settings.tooltipClass).each(function (i) {
         $('[data-tooltip]').get(i).attr('title', $(this).text());
       }).remove();
-<<<<<<< HEAD
     },
 
     reflow : function () {}
-=======
-    }
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
   };
 }(Foundation.zj, this, this.document));

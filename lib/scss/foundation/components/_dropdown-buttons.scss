@@ -1,7 +1,6 @@
 //
 // Dropdown Button Variables
 //
-<<<<<<< HEAD
 $include-html-button-classes: $include-html-classes !default;
 
 // We use these to set the color of the pip in dropdown buttons
@@ -31,36 +30,6 @@ $dropdown-button-padding-lrg: $button-lrg * 4 !default;
 $dropdown-button-pip-size-lrg: $button-lrg - emCalc(6) !default;
 $dropdown-button-pip-opposite-lrg: $button-lrg + emCalc(12) !default;
 $dropdown-button-pip-top-lrg: -$button-lrg / 2 + emCalc(3) !default;
-=======
-
-// We use these to set the color of the pip in dropdown buttons
-$dropdown-button-pip-color:     #fff !default;
-$dropdown-button-pip-color-alt: #333 !default;
-
-// We use these to style tiny dropdown buttons
-$dropdown-button-padding-tny:   $button-tny * 5 !default;
-$dropdown-button-pip-size-tny:  $button-tny !default;
-$dropdown-button-pip-opposite-tny: $button-tny * 2 !default;
-$dropdown-button-pip-top-tny:   -$button-tny / 2 + emCalc(1px) !default;
-
-// We use these to style small dropdown buttons
-$dropdown-button-padding-sml:   $button-sml * 5 !default;
-$dropdown-button-pip-size-sml:  $button-sml !default;
-$dropdown-button-pip-opposite-sml: $button-sml * 2 !default;
-$dropdown-button-pip-top-sml:   -$button-sml / 2 + emCalc(1px) !default;
-
-// We use these to style medium dropdown buttons
-$dropdown-button-padding-med:   $button-med * 4 + emCalc(3px) !default;
-$dropdown-button-pip-size-med:  $button-med - emCalc(3px) !default;
-$dropdown-button-pip-opposite-med: $button-med * 2 !default;
-$dropdown-button-pip-top-med:   -$button-med / 2 + emCalc(2px) !default;
-
-// We use these to style large dropdown buttons
-$dropdown-button-padding-lrg:   $button-lrg * 4 !default;
-$dropdown-button-pip-size-lrg:  $button-lrg - emCalc(6px) !default;
-$dropdown-button-pip-opposite-lrg: $button-lrg + emCalc(12px) !default;
-$dropdown-button-pip-top-lrg:   -$button-lrg / 2 + emCalc(3px) !default;
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
 //
 // Dropdown Button Mixin
@@ -133,11 +102,7 @@ $dropdown-button-pip-top-lrg:   -$button-lrg / 2 + emCalc(3px) !default;
 }
 
 
-<<<<<<< HEAD
 @if $include-html-button-classes {
-=======
-@if $include-html-button-classes != false {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
   /* Dropdown Button */
   .dropdown.button { @include dropdown-button;
@@ -147,8 +112,4 @@ $dropdown-button-pip-top-lrg:   -$button-lrg / 2 + emCalc(3px) !default;
     &.secondary:before { border-color: $dropdown-button-pip-color-alt transparent transparent transparent; }
   }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2

@@ -1,16 +1,10 @@
 //
 // Progress Bar Variables
 //
-<<<<<<< HEAD
 $include-html-media-classes: $include-html-classes !default;
 
 // We use this to se the prog bar height
 $progress-bar-height: emCalc(25) !default;
-=======
-
-// We use this to se the prog bar height
-$progress-bar-height: emCalc(25px) !default;
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 $progress-bar-color: transparent !default;
 
 // We use these to control the border styles
@@ -20,13 +14,8 @@ $progress-bar-border-style: solid !default;
 $progress-bar-border-radius: $global-radius !default;
 
 // We use these to control the margin & padding
-<<<<<<< HEAD
 $progress-bar-pad: emCalc(2) !default;
 $progress-bar-margin-bottom: emCalc(10) !default;
-=======
-$progress-bar-pad: emCalc(2px) !default;
-$progress-bar-margin-bottom: emCalc(10px) !default;
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
 // We use these to set the meter colors
 $progress-meter-color: $primary-color !default;

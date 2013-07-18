@@ -6,11 +6,7 @@
   Foundation.libs.reveal = {
     name: 'reveal',
 
-<<<<<<< HEAD
     version : '4.2.2',
-=======
-    version : '4.1.2',
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
     locked : false,
 
@@ -18,10 +14,7 @@
       animation: 'fadeAndPop',
       animationSpeed: 250,
       closeOnBackgroundClick: true,
-<<<<<<< HEAD
       closeOnEsc: true,
-=======
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       dismissModalClass: 'close-reveal-modal',
       bgClass: 'reveal-modal-bg',
       open: function(){},
@@ -44,10 +37,6 @@
     },
 
     init : function (scope, method, options) {
-<<<<<<< HEAD
-=======
-      this.scope = scope || this.scope;
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       Foundation.inherit(this, 'data_options delay');
 
       if (typeof method === 'object') {
@@ -56,11 +45,7 @@
         $.extend(true, this.settings, options);
       }
 
-<<<<<<< HEAD
       if (typeof method !== 'string') {
-=======
-      if (typeof method != 'string') {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
         this.events();
 
         return this.settings.init;
@@ -76,7 +61,6 @@
         .off('.fndtn.reveal')
         .on('click.fndtn.reveal', '[data-reveal-id]', function (e) {
           e.preventDefault();
-<<<<<<< HEAD
 
           if (!self.locked) {
             var element = $(this),
@@ -101,16 +85,6 @@
               return;
             }
 
-=======
-          if (!self.locked) {
-            self.locked = true;
-            self.open.call(self, $(this));
-          }
-        })
-        .on('click.fndtn.reveal touchend.click.fndtn.reveal', this.close_targets(), function (e) {
-          e.preventDefault();
-          if (!self.locked) {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
             self.locked = true;
             self.close.call(self, $(this).closest('.reveal-modal'));
           }
@@ -122,7 +96,6 @@
         .on('closed.fndtn.reveal', '.reveal-modal', this.settings.closed)
         .on('closed.fndtn.reveal', '.reveal-modal', this.close_video);
 
-<<<<<<< HEAD
       $( 'body' ).bind( 'keyup.reveal', function ( event ) {
         var open_modal = $('.reveal-modal.open'),
             settings = $.extend({}, self.settings, self.data_options(open_modal));
@@ -143,14 +116,6 @@
 
           ajax_settings = target;
         }
-=======
-      return true;
-    },
-
-    open : function (target) {
-      if (target) {
-        var modal = $('#' + target.data('reveal-id'));
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       } else {
         var modal = $(this.scope);
       }
@@ -168,7 +133,6 @@
         if (open_modal.length < 1) {
           this.toggle_bg(modal);
         }
-<<<<<<< HEAD
 
         if (typeof ajax_settings === 'undefined' || !ajax_settings.url) {
           this.hide(open_modal, this.settings.css.close);
@@ -193,20 +157,12 @@
 
           $.ajax(ajax_settings);
         }
-=======
-        this.hide(open_modal, this.settings.css.close);
-        this.show(modal, this.settings.css.open);
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       }
     },
 
     close : function (modal) {
 
-<<<<<<< HEAD
       var modal = modal && modal.length ? modal : $(this.scope),
-=======
-      var modal = modal || $(this.scope),
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
           open_modals = $('.reveal-modal.open');
 
       if (open_modals.length > 0) {
@@ -336,11 +292,7 @@
       if (iframe.length > 0) {
         iframe.attr('data-src', iframe[0].src);
         iframe.attr('src', 'about:blank');
-<<<<<<< HEAD
         video.hide();
-=======
-        video.fadeOut(100).hide();
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       }
     },
 
@@ -352,17 +304,12 @@
         var data_src = iframe.attr('data-src');
         if (typeof data_src === 'string') {
           iframe[0].src = iframe.attr('data-src');
-<<<<<<< HEAD
         } else {
           var src = iframe[0].src;
           iframe[0].src = undefined;
           iframe[0].src = src;
         }
         video.show();
-=======
-        }
-        video.show().fadeIn(100);
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       }
     },
 
@@ -376,12 +323,8 @@
 
     off : function () {
       $(this.scope).off('.fndtn.reveal');
-<<<<<<< HEAD
     },
 
     reflow : function () {}
-=======
-    }
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
   };
 }(Foundation.zj, this, this.document));

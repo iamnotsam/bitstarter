@@ -6,7 +6,6 @@
   Foundation.libs.section = {
     name: 'section',
 
-<<<<<<< HEAD
     version : '4.2.3',
 
     settings : {
@@ -19,13 +18,6 @@
       active_region_selector : 'section.active, .section.active, .active[data-section-region]',
       content_selector : '.content, [data-section-content]',
       nav_selector : '[data-section="vertical-nav"], [data-section="horizontal-nav"]',
-=======
-    version : '4.1.2',
-
-    settings : {
-      deep_linking: false,
-      one_up: true,
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       callback: function (){}
     },
 
@@ -33,15 +25,11 @@
       var self = this;
       Foundation.inherit(this, 'throttle data_options position_right offset_right');
 
-<<<<<<< HEAD
       if (typeof method === 'object') {
         $.extend(true, self.settings, method);
       }
 
       if (typeof method !== 'string') {
-=======
-      if (typeof method != 'string') {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
         this.set_active_from_hash();
         this.events();
 
@@ -57,18 +45,12 @@
       $(this.scope)
         .on('click.fndtn.section', '[data-section] .title, [data-section] [data-section-title]', function (e) {
           var $this = $(this),
-<<<<<<< HEAD
               section = $this.closest(self.settings.region_selector);
 
           if (section.children(self.settings.content_selector).length > 0) {
             self.toggle_active.call(this, e, self);
             self.reflow();
           }
-=======
-              section = $this.closest('[data-section]');
-
-          self.toggle_active.call(this, e, self);
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
         });
 
       $(window)
@@ -84,15 +66,9 @@
 
       $(document)
         .on('click.fndtn.section', function (e) {
-<<<<<<< HEAD
           if ($(e.target).closest(self.settings.title_selector).length < 1) {
             $(self.settings.nav_selector)
               .children(self.settings.region_selector)
-=======
-          if ($(e.target).closest('.title, [data-section-title]').length < 1) {
-            $('[data-section="vertical-nav"], [data-section="horizontal-nav"]')
-              .find('section, .section, [data-section-region]')
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
               .removeClass('active')
               .attr('style', '');
           }
@@ -102,7 +78,6 @@
 
     toggle_active : function (e, self) {
       var $this = $(this),
-<<<<<<< HEAD
           self = Foundation.libs.section,
           region = $this.closest(self.settings.region_selector),
           content = $this.siblings(self.settings.content_selector),
@@ -110,13 +85,6 @@
           settings = $.extend({}, self.settings, self.data_options(parent)),
           prev_active_section = parent
             .children(self.settings.active_region_selector);
-=======
-          section = $this.closest('section, .section, [data-section-region]'),
-          content = section.find('.content, [data-section-content]'),
-          parent = section.closest('[data-section]'),
-          self = Foundation.libs.section,
-          settings = $.extend({}, self.settings, self.data_options(parent));
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
       self.settings.toggled = true;
 
@@ -124,17 +92,12 @@
         e.preventDefault();
       }
 
-<<<<<<< HEAD
       if (region.hasClass('active')) {
         // this is causing the style flash.
-=======
-      if (section.hasClass('active')) {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
         if (self.small(parent)
           || self.is_vertical_nav(parent)
           || self.is_horizontal_nav(parent)
           || self.is_accordion(parent)) {
-<<<<<<< HEAD
             if (prev_active_section[0] !== region[0]
               || (prev_active_section[0] === region[0] && !settings.one_up)) {
               region
@@ -149,33 +112,16 @@
               .children(self.settings.title_selector));
 
         if (self.small(parent) || settings.one_up) {
-=======
-          section
-            .removeClass('active')
-            .attr('style', '');
-        }
-      } else {
-        var prev_active_section = null,
-            title_height = self.outerHeight(section.find('.title, [data-section-title]'));
-
-        if (self.small(parent) || settings.one_up) {
-          prev_active_section = $this.closest('[data-section]').find('section.active, .section.active, .active[data-section-region]');
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
           if (self.small(parent)) {
             prev_active_section.attr('style', '');
           } else {
-<<<<<<< HEAD
             prev_active_section.attr('style',
               'visibility: hidden; padding-top: '+title_height+'px;');
-=======
-            prev_active_section.attr('style', 'visibility: hidden; padding-top: '+title_height+'px;');
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
           }
         }
 
         if (self.small(parent)) {
-<<<<<<< HEAD
           region.attr('style', '');
         } else {
           region.css('padding-top', title_height);
@@ -187,17 +133,6 @@
           prev_active_section
             .removeClass('active')
             .attr('style', '');
-=======
-          section.attr('style', '');
-        } else {
-          section.css('padding-top', title_height);
-        }
-
-        section.addClass('active');
-
-        if (prev_active_section !== null) {
-          prev_active_section.removeClass('active').attr('style', '');
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
         }
 
         // Toggle the content display attribute. This is done to
@@ -208,11 +143,7 @@
 
           if (prev_active_section !== null) {
             prev_active_section
-<<<<<<< HEAD
               .children(self.settings.content_selector)
-=======
-              .find('.content')
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
               .css('display', 'none');
           }
         }
@@ -226,7 +157,6 @@
     },
 
     resize : function () {
-<<<<<<< HEAD
       var self = Foundation.libs.section,
           sections = $(self.settings.section_selector);
 
@@ -234,14 +164,6 @@
         var $this = $(this),
             active_section = $this
               .children(self.settings.active_region_selector),
-=======
-      var sections = $('[data-section]'),
-          self = Foundation.libs.section;
-
-      sections.each(function() {
-        var $this = $(this),
-            active_section = $this.find('section.active, .section.active, .active[data-section-region]'),
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
             settings = $.extend({}, self.settings, self.data_options($this));
 
         if (active_section.length > 1) {
@@ -254,49 +176,31 @@
           && !self.is_horizontal_nav($this)
           && !self.is_accordion($this)) {
 
-<<<<<<< HEAD
           var first = $this.children(self.settings.region_selector).first();
 
           if (settings.one_up || !self.small($this)) {
-=======
-          var first = $this.find('section, .section, [data-section-region]').first();
-
-          if (settings.one_up) {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
             first.addClass('active');
           }
 
           if (self.small($this)) {
             first.attr('style', '');
           } else {
-<<<<<<< HEAD
             first.css('padding-top', self.outerHeight(first
               .children(self.settings.title_selector)));
-=======
-            first.css('padding-top', self.outerHeight(first.find('.title, [data-section-title]')));
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
           }
         }
 
         if (self.small($this)) {
           active_section.attr('style', '');
         } else {
-<<<<<<< HEAD
           active_section.css('padding-top', self.outerHeight(active_section
             .children(self.settings.title_selector)));
-=======
-          active_section.css('padding-top', self.outerHeight(active_section.find('.title, [data-section-title]')));
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
         }
 
         self.position_titles($this);
 
         if ( (self.is_horizontal_nav($this) && !self.small($this))
-<<<<<<< HEAD
           || self.is_vertical_tabs($this) && !self.small($this)) {
-=======
-          || self.is_vertical_tabs($this)) {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
           self.position_content($this);
         } else {
           self.position_content($this, false);
@@ -328,16 +232,11 @@
       var hash = window.location.hash.substring(1),
           sections = $('[data-section]'),
           self = this;
-<<<<<<< HEAD
-=======
-
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       sections.each(function () {
         var section = $(this),
             settings = $.extend({}, self.settings, self.data_options(section));
 
         if (hash.length > 0 && settings.deep_linking) {
-<<<<<<< HEAD
           var regions = section
             .children(self.settings.region_selector)
             .attr('style', '')
@@ -358,31 +257,17 @@
           for (var i = count - 1; i >= 0; i--) {
             $(hash_regions[i]).parents(self.settings.region_selector).addClass('active');
           }
-=======
-          section
-            .find('section, .section, [data-section-region]')
-            .attr('style', '')
-            .removeClass('active');
-          section
-            .find('.content[data-slug="' + hash + '"], [data-section-content][data-slug="' + hash + '"]')
-            .closest('section, .section, [data-section-region]')
-            .addClass('active');
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
         }
       });
     },
 
     position_titles : function (section, off) {
-<<<<<<< HEAD
       var self = this,
           titles = section
             .children(this.settings.region_selector)
             .map(function () {
               return $(this).children(self.settings.title_selector);
             }),
-=======
-      var titles = section.find('.title, [data-section-title]'),
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
           previous_width = 0,
           previous_height = 0,
           self = this;
@@ -408,7 +293,6 @@
     },
 
     position_content : function (section, off) {
-<<<<<<< HEAD
       var self = this,
           regions = section.children(self.settings.region_selector),
           titles = regions
@@ -419,23 +303,15 @@
             .map(function () {
               return $(this).children(self.settings.content_selector);
             });
-=======
-      var titles = section.find('.title, [data-section-title]'),
-          content = section.find('.content, [data-section-content]'),
-          self = this;
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
       if (typeof off === 'boolean') {
         content.attr('style', '');
         section.attr('style', '');
-<<<<<<< HEAD
 
         // Reset the minHeight and maxWidth values (only applicable to
         // vertical tabs)
         content.css('minHeight', '');
         content.css('maxWidth', '');
-=======
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       } else {
         if (self.is_vertical_tabs(section)
             && !self.small(section)) {
@@ -443,24 +319,15 @@
               content_min_width = Number.MAX_VALUE,
               title_width = null;
 
-<<<<<<< HEAD
           regions.each(function () {
             var region = $(this),
                 title = region.children(self.settings.title_selector),
                 content = region.children(self.settings.content_selector),
-=======
-          section.find('section, .section, [data-section-region]').each(function () {
-            var title = $(this).find('.title, [data-section-title]'),
-                content = $(this).find('.content, [data-section-content]'),
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
                 content_width = 0;
 
             title_width = self.outerWidth(title);
             content_width = self.outerWidth(section) - title_width;
-<<<<<<< HEAD
 
-=======
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
             if (content_width < content_min_width) {
               content_min_width = content_width;
             }
@@ -478,20 +345,14 @@
             }
           });
 
-<<<<<<< HEAD
           regions.each(function () {
             var content = $(this).children(self.settings.content_selector);
-=======
-          section.find('section, .section, [data-section-region]').each(function () {
-            var content = $(this).find('.content, [data-section-content]');
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
             content.css('minHeight', content_min_height);
 
             // Remove 2 pixels to account for the right-shift in the CSS
             content.css('maxWidth', content_min_width - 2);
           });
 
-<<<<<<< HEAD
         } else {
           regions.each(function () {
             var region = $(this),
@@ -505,40 +366,20 @@
               content
                 .css({right: self.position_right(title) + 1,
                   top: self.outerHeight(title) - 2});
-=======
-          // Adjust the outer section container width to match
-          // the width of the title and content
-          section.css('maxWidth', title_width + content_min_width);
-        } else {
-          section.find('section, .section, [data-section-region]').each(function () {
-            var title = $(this).find('.title, [data-section-title]'),
-                content = $(this).find('.content, [data-section-content]');
-            if (!self.rtl) {
-              content.css({left: title.position().left - 1, top: self.outerHeight(title) - 2});
-            } else {
-              content.css({right: self.position_right(title) + 1, top: self.outerHeight(title) - 2});
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
             }
           });
 
           // temporary work around for Zepto outerheight calculation issues.
           if (typeof Zepto === 'function') {
-<<<<<<< HEAD
             section.height(this.outerHeight($(titles[0])));
           } else {
             section.height(this.outerHeight($(titles[0])) - 2);
-=======
-            section.height(this.outerHeight(titles.first()));
-          } else {
-            section.height(this.outerHeight(titles.first()) - 2);
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
           }
         }
       }
     },
 
     position_right : function (el) {
-<<<<<<< HEAD
       var self = this,
           section = el.closest(this.settings.section_selector),
           regions = section.children(this.settings.region_selector),
@@ -553,24 +394,11 @@
     reflow : function (scope) {
       var scope = scope || document;
       $(this.settings.section_selector, scope).trigger('resize');
-=======
-      var section = el.closest('[data-section]'),
-          section_width = el.closest('[data-section]').width(),
-          offset = section.find('.title, [data-section-title]').length;
-      return (section_width - el.position().left - el.width() * (el.index() + 1) - offset);
-    },
-
-    reflow : function () {
-      $('[data-section]').trigger('resize');
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
     },
 
     small : function (el) {
       var settings = $.extend({}, this.settings, this.data_options(el));
-<<<<<<< HEAD
 
-=======
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       if (this.is_horizontal_tabs(el)) {
         return false;
       }
@@ -583,11 +411,7 @@
       if ($('html').hasClass('ie8compat')) {
         return true;
       }
-<<<<<<< HEAD
       return $(this.scope).width() < settings.small_breakpoint;
-=======
-      return $(this.scope).width() < 768;
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
     },
 
     off : function () {

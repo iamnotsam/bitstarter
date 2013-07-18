@@ -1,16 +1,10 @@
 //
 // Button Group Variables
 //
-<<<<<<< HEAD
 $include-html-button-classes: $include-html-classes !default;
 
 // Sets the margin for the right side by default, and the left margin if right-to-left direction is used
 $button-bar-margin-opposite: emCalc(10) !default;
-=======
-
-// Sets the margin for the right side by default, and the left margin if right-to-left direction is used
-$button-bar-margin-opposite: emCalc(10px) !default;
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
 //
 // Button Group Mixins
@@ -92,8 +86,4 @@ $button-bar-margin-opposite: emCalc(10px) !default;
     .button-group { @include button-group-container($styles:false,$float:true); }
   }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2

@@ -1,7 +1,6 @@
 //
 // Label Variables
 //
-<<<<<<< HEAD
 $include-html-label-classes: $include-html-classes !default;
 
 // We use these to style the labels
@@ -10,15 +9,6 @@ $label-radius: $global-radius !default;
 
 // We use these to style the label text
 $label-font-sizing: emCalc(14) !default;
-=======
-
-// We use these to style the labels
-$label-padding:     emCalc(3px) emCalc(10px) emCalc(4px) !default;
-$label-radius:      $global-radius !default;
-
-// We use these to style the label text
-$label-font-sizing:   emCalc(14px) !default;
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 $label-font-weight: bold !default;
 $label-font-color: #333 !default;
 $label-font-color-alt: #fff !default;
@@ -92,8 +82,4 @@ $label-font-color-alt: #fff !default;
     &.secondary { @include label-style($secondary-color); }
   }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2

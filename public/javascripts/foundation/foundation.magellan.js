@@ -6,18 +6,11 @@
   Foundation.libs.magellan = {
     name : 'magellan',
 
-<<<<<<< HEAD
     version : '4.2.2',
 
     settings : {
       activeClass: 'active',
       threshold: 0
-=======
-    version : '4.0.0',
-
-    settings : {
-      activeClass: 'active'
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
     },
 
     init : function (scope, method, options) {
@@ -28,11 +21,7 @@
         $.extend(true, this.settings, method);
       }
 
-<<<<<<< HEAD
       if (typeof method !== 'string') {
-=======
-      if (typeof method != 'string') {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
         if (!this.settings.init) {
           this.fixed_magellan = $("[data-magellan-expedition]");
           this.set_threshold();
@@ -66,11 +55,7 @@
         .on('update-position.fndtn.magellan', function(){
           var $el = $(this);
           // $el.data("magellan-fixed-position","");
-<<<<<<< HEAD
           // $el.data("magellan-top-offset", "");
-=======
-          //$el.data("magellan-top-offset", "");
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
         })
         .trigger('update-position');
 
@@ -95,15 +80,10 @@
             if ($expedition.data("magellan-fixed-position") != fixed_position) {
               $expedition.data("magellan-fixed-position", fixed_position);
               if (fixed_position) {
-<<<<<<< HEAD
                 $expedition.addClass('fixed');
                 $expedition.css({position:"fixed", top:0});
               } else {
                 $expedition.removeClass('fixed');
-=======
-                $expedition.css({position:"fixed", top:0});
-              } else {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
                 $expedition.css({position:"", top:""});
               }
               if (fixed_position && typeof attr != 'undefined' && attr != false) {
@@ -148,14 +128,8 @@
 
     off : function () {
       $(this.scope).off('.fndtn.magellan');
-<<<<<<< HEAD
     },
 
     reflow : function () {}
   };
 }(Foundation.zj, this, this.document));
-=======
-    }
-  };
-}(Foundation.zj, this, this.document));
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2

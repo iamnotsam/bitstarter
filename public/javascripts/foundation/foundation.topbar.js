@@ -6,36 +6,25 @@
   Foundation.libs.topbar = {
     name : 'topbar',
 
-<<<<<<< HEAD
     version : '4.2.4',
-=======
-    version : '4.1.2',
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
     settings : {
       index : 0,
       stickyClass : 'sticky',
       custom_back_text: true,
       back_text: 'Back',
-<<<<<<< HEAD
       is_hover: true,
       mobile_show_parent_link: true,
       scrolltop : true, // jump to top when sticky nav menu toggle is clicked
-=======
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       init : false
     },
 
     init : function (section, method, options) {
-<<<<<<< HEAD
       Foundation.inherit(this, 'data_options');
-=======
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       var self = this;
 
       if (typeof method === 'object') {
         $.extend(true, this.settings, method);
-<<<<<<< HEAD
       } else if (typeof options !== 'undefined') {
         $.extend(true, this.settings, options);
       }
@@ -44,22 +33,10 @@
 
         $('.top-bar, [data-topbar]').each(function () {
           $.extend(true, self.settings, self.data_options($(this)));
-=======
-      }
-
-      if (typeof method != 'string') {
-
-        $('.top-bar').each(function () {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
           self.settings.$w = $(window);
           self.settings.$topbar = $(this);
           self.settings.$section = self.settings.$topbar.find('section');
           self.settings.$titlebar = self.settings.$topbar.children('ul').first();
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
           self.settings.$topbar.data('index', 0);
 
           var breakpoint = $("<div class='top-bar-js-breakpoint'/>").insertAfter(self.settings.$topbar);
@@ -86,7 +63,6 @@
 
     events : function () {
       var self = this;
-<<<<<<< HEAD
       var offst = this.outerHeight($('.top-bar, [data-topbar]'));
       $(this.scope)
         .off('.fndtn.topbar')
@@ -98,26 +74,6 @@
           e.preventDefault();
 
           if (self.breakpoint()) {
-=======
-      var offst = this.outerHeight($('.top-bar'));
-      $(this.scope)
-        .on('click.fndtn.topbar', '.top-bar .toggle-topbar', function (e) {
-          var topbar = $(this).closest('.top-bar'),
-              section = topbar.find('section, .section'),
-              titlebar = topbar.children('ul').first();
-
-          if (!topbar.data('height')) self.largestUL();
-
-          e.preventDefault();
-
-          if (self.breakpoint()) {
-            topbar
-              .toggleClass('expanded')
-              .css('min-height', '');
-          }
-
-          if (!topbar.hasClass('expanded')) {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
             if (!self.rtl) {
               section.css({left: '0%'});
               section.find('>.name').css({left: '100%'});
@@ -125,7 +81,6 @@
               section.css({right: '0%'});
               section.find('>.name').css({right: '100%'});
             }
-<<<<<<< HEAD
 
             section.find('li.moved').removeClass('moved');
             topbar.data('index', 0);
@@ -136,11 +91,6 @@
           }
 
           if (!topbar.hasClass('expanded')) {
-=======
-            section.find('li.moved').removeClass('moved');
-            topbar.data('index', 0);
-
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
             if (topbar.hasClass('fixed')) {
               topbar.parent().addClass('fixed');
               topbar.removeClass('fixed');
@@ -150,7 +100,6 @@
             topbar.parent().removeClass('fixed');
             topbar.addClass('fixed');
             $('body').css('padding-top','0');
-<<<<<<< HEAD
 
             if (self.settings.scrolltop) {
               window.scrollTo(0,0);
@@ -203,31 +152,11 @@
                 section = topbar.find('section, .section'),
                 titlebar = topbar.children('ul').first(),
                 dropdownHeight = $this.next('.dropdown').outerHeight(),
-=======
-            window.scrollTo(0,0);
-          }
-        })
-
-        .on('click.fndtn.topbar', '.top-bar .has-dropdown>a', function (e) {
-          var topbar = $(this).closest('.top-bar'),
-              section = topbar.find('section, .section'),
-              titlebar = topbar.children('ul').first();
-
-          if (Modernizr.touch || self.breakpoint()) {
-            e.preventDefault();
-          }
-
-          if (self.breakpoint()) {
-            var $this = $(this),
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
                 $selectedLi = $this.closest('li');
 
             topbar.data('index', topbar.data('index') + 1);
             $selectedLi.addClass('moved');
-<<<<<<< HEAD
 
-=======
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
             if (!self.rtl) {
               section.css({left: -(100 * topbar.data('index')) + '%'});
               section.find('>.name').css({left: 100 * topbar.data('index') + '%'});
@@ -236,20 +165,12 @@
               section.find('>.name').css({right: 100 * topbar.data('index') + '%'});
             }
 
-<<<<<<< HEAD
             topbar.css('height', self.outerHeight($this.siblings('ul'), true) + self.outerHeight(titlebar, true));
-=======
-            $this.siblings('ul')
-              .height(topbar.data('height') + self.outerHeight(titlebar, true));
-            topbar
-              .css('min-height', topbar.data('height') + self.outerHeight(titlebar, true) * 2)
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
           }
         });
 
       $(window).on('resize.fndtn.topbar', function () {
         if (!self.breakpoint()) {
-<<<<<<< HEAD
           $('.top-bar, [data-topbar]')
             .css('height', '')
             .removeClass('expanded')
@@ -275,29 +196,12 @@
         var $this = $(this),
             topbar = $this.closest('.top-bar, [data-topbar]'),
             titlebar = topbar.children('ul').first(),
-=======
-          $('.top-bar')
-            .css('min-height', '')
-            .removeClass('expanded');
-        }
-      }.bind(this));
-
-      // Go up a level on Click
-      $(this.scope).on('click.fndtn', '.top-bar .has-dropdown .back', function (e) {
-        e.preventDefault();
-
-        var $this = $(this),
-            topbar = $this.closest('.top-bar'),
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
             section = topbar.find('section, .section'),
             $movedLi = $this.closest('li.moved'),
             $previousLevelUl = $movedLi.parent();
 
         topbar.data('index', topbar.data('index') - 1);
-<<<<<<< HEAD
 
-=======
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
         if (!self.rtl) {
           section.css({left: -(100 * topbar.data('index')) + '%'});
           section.find('>.name').css({left: 100 * topbar.data('index') + '%'});
@@ -307,13 +211,9 @@
         }
 
         if (topbar.data('index') === 0) {
-<<<<<<< HEAD
           topbar.css('height', '');
         } else {
           topbar.css('height', self.outerHeight($previousLevelUl, true) + self.outerHeight(titlebar, true));
-=======
-          topbar.css('min-height', 0);
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
         }
 
         setTimeout(function () {
@@ -323,11 +223,7 @@
     },
 
     breakpoint : function () {
-<<<<<<< HEAD
       return $(document).width() <= this.settings.breakPoint || $('html').hasClass('lt-ie9');
-=======
-      return $(window).width() <= this.settings.breakPoint || $('html').hasClass('lt-ie9');
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
     },
 
     assemble : function () {
@@ -338,7 +234,6 @@
       this.settings.$section.find('.has-dropdown>a').each(function () {
         var $link = $(this),
             $dropdown = $link.siblings('.dropdown'),
-<<<<<<< HEAD
             url = $link.attr('href');
 
         if (self.settings.mobile_show_parent_link && url && url.length > 1) {
@@ -346,9 +241,6 @@
         } else {
           var $titleLi = $('<li class="title back js-generated"><h5><a href="#"></a></h5></li>');
         }
-=======
-            $titleLi = $('<li class="title back js-generated"><h5><a href="#"></a></h5></li>');
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
         // Copy link to subnav
         if (self.settings.custom_back_text == true) {
@@ -366,7 +258,6 @@
       this.sticky();
     },
 
-<<<<<<< HEAD
     height : function (ul) {
       var total = 0,
           self = this;
@@ -374,30 +265,12 @@
       ul.find('> li').each(function () { total += self.outerHeight($(this), true); });
 
       return total;
-=======
-    largestUL : function () {
-      var uls = this.settings.$topbar.find('section ul ul'),
-          largest = uls.first(),
-          total = 0,
-          self = this;
-
-      uls.each(function () {
-        if ($(this).children('li').length > largest.children('li').length) {
-          largest = $(this);
-        }
-      });
-
-      largest.children('li').each(function () { total += self.outerHeight($(this), true); });
-
-      this.settings.$topbar.data('height', total);
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
     },
 
     sticky : function () {
       var klass = '.' + this.settings.stickyClass;
       if ($(klass).length > 0) {
         var distance = $(klass).length ? $(klass).offset().top: 0,
-<<<<<<< HEAD
             $window = $(window),
             offst = this.outerHeight($('.top-bar')),
             t_top;
@@ -414,18 +287,6 @@
               $(klass).addClass("fixed");
               $('body').css('padding-top',offst);
             } else if ($window.scrollTop() <= distance) {
-=======
-            $window = $(window);
-            var offst = this.outerHeight($('.top-bar'));
-
-          $window.scroll(function() {
-            if ($window.scrollTop() >= (distance)) {
-              $(klass).addClass("fixed");
-              $('body').css('padding-top',offst);
-            }
-
-            else if ($window.scrollTop() < distance) {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
               $(klass).removeClass("fixed");
               $('body').css('padding-top','0');
             }
@@ -436,12 +297,8 @@
     off : function () {
       $(this.scope).off('.fndtn.topbar');
       $(window).off('.fndtn.topbar');
-<<<<<<< HEAD
     },
 
     reflow : function () {}
-=======
-    }
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
   };
 }(Foundation.zj, this, this.document));

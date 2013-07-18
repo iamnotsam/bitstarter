@@ -1,7 +1,6 @@
 //
 // Keystroke Variables
 //
-<<<<<<< HEAD
 $include-html-type-classes: $include-html-classes !default;
 
 // We use these to control text styles.
@@ -20,25 +19,6 @@ $keystroke-border-style: solid !default;
 $keystroke-border-width: 1px !default;
 $keystroke-border-color: darken($keystroke-bg, $keystroke-function-factor) !default;
 $keystroke-radius: $global-radius !default;
-=======
-
-// We use these to control text styles.
-$keystroke-font:            "Consolas", "Menlo", "Courier", monospace !default;
-$keystroke-font-size:       emCalc(15px) !default;
-$keystroke-font-color:      #222 !default;
-$keystroke-font-color-alt:  #fff !default;
-$keystroke-function-factor: 7% !default;
-
-// We use this to control keystroke padding.
-$keystroke-padding:         emCalc(2px) emCalc(4px) emCalc(0px) !default;
-
-// We use these to control background and border styles.
-$keystroke-bg:              darken(#fff, $keystroke-function-factor) !default;
-$keystroke-border-style:    solid !default;
-$keystroke-border-width:    1px !default;
-$keystroke-border-color:    darken($keystroke-bg, $keystroke-function-factor) !default;
-$keystroke-radius:          $global-radius !default;
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
 //
 // Keystroke Mixins
@@ -65,11 +45,7 @@ $keystroke-radius:          $global-radius !default;
 }
 
 
-<<<<<<< HEAD
 @if $include-html-type-classes != false {
-=======
-@if $include-html-media-classes != false {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
   /* Keystroke Characters */
   .keystroke,
@@ -78,8 +54,4 @@ $keystroke-radius:          $global-radius !default;
     @include radius($keystroke-radius);
   }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2

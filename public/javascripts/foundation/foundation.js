@@ -13,7 +13,6 @@
 // See http://docs.jquery.com/Using_jQuery_with_Other_Libraries
 // and http://zeptojs.com/
 var libFuncName = null;
-<<<<<<< HEAD
 
 if (typeof jQuery === "undefined" &&
     typeof Zepto === "undefined" &&
@@ -72,23 +71,6 @@ if (typeof jQuery === "undefined" &&
 
   }( document ));
 
-=======
-if (typeof jQuery === "undefined" &&
-    typeof Zepto === "undefined" &&
-    typeof $ === "function") {
-    libFuncName = $;
-} else if (typeof jQuery === "function") {
-    libFuncName = jQuery;
-} else if (typeof Zepto === "function") {
-    libFuncName = Zepto;
-} else {
-    throw new TypeError();
-}
-
-(function ($) {
-
-(function () {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
   // add dusty browser stuff
   if (!Array.prototype.filter) {
     Array.prototype.filter = function(fun /*, thisp */) {
@@ -97,7 +79,6 @@ if (typeof jQuery === "undefined" &&
       if (this == null) {
         throw new TypeError();
       }
-<<<<<<< HEAD
 
       var t = Object(this),
           len = t.length >>> 0;
@@ -105,15 +86,6 @@ if (typeof jQuery === "undefined" &&
           return;
       }
 
-=======
-   
-      var t = Object(this),
-          len = t.length >>> 0;
-      if (typeof fun != "function") {
-          return;
-      }
-   
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       var res = [],
           thisp = arguments[1];
       for (var i = 0; i < len; i++) {
@@ -124,7 +96,6 @@ if (typeof jQuery === "undefined" &&
           }
         }
       }
-<<<<<<< HEAD
 
       return res;
     }
@@ -184,34 +155,6 @@ if (typeof jQuery === "undefined" &&
         }
       }
       return -1;
-=======
-   
-      return res;
-    };
-
-    if (!Function.prototype.bind) {
-      Function.prototype.bind = function (oThis) {
-        if (typeof this !== "function") {
-          // closest thing possible to the ECMAScript 5 internal IsCallable function
-          throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
-        }
-     
-        var aArgs = Array.prototype.slice.call(arguments, 1), 
-            fToBind = this, 
-            fNOP = function () {},
-            fBound = function () {
-              return fToBind.apply(this instanceof fNOP && oThis
-                 ? this
-                 : oThis,
-               aArgs.concat(Array.prototype.slice.call(arguments)));
-            };
-     
-        fNOP.prototype = this.prototype;
-        fBound.prototype = new fNOP();
-     
-        return fBound;
-      };
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
     }
   }
 
@@ -219,25 +162,12 @@ if (typeof jQuery === "undefined" &&
   $.fn.stop = $.fn.stop || function() {
     return this;
   };
-<<<<<<< HEAD
-=======
-}());
-
-(function (window, document, undefined) {
-  'use strict';
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
   window.Foundation = {
     name : 'Foundation',
 
-<<<<<<< HEAD
     version : '4.2.3',
 
-=======
-    version : '4.1.3',
-
-    // global Foundation cache object
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
     cache : {},
 
     init : function (scope, libraries, method, options, response, /* internal */ nc) {
@@ -245,30 +175,18 @@ if (typeof jQuery === "undefined" &&
           args = [scope, method, options, response],
           responses = [],
           nc = nc || false;
-<<<<<<< HEAD
 
-=======
-          
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       // disable library error catching,
       // used for development only
       if (nc) this.nc = nc;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       // check RTL
       this.rtl = /rtl/i.test($('html').attr('dir'));
 
       // set foundation global scope
       this.scope = scope || this.scope;
 
-<<<<<<< HEAD
       if (libraries && typeof libraries === 'string' && !/reflow/i.test(libraries)) {
-=======
-      if (libraries && typeof libraries === 'string') {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
         if (/off/i.test(libraries)) return this.off();
 
         library_arr = libraries.split(' ');
@@ -279,11 +197,8 @@ if (typeof jQuery === "undefined" &&
           }
         }
       } else {
-<<<<<<< HEAD
         if (/reflow/i.test(libraries)) args[1] = 'reflow';
 
-=======
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
         for (var lib in this.libs) {
           responses.push(this.init_lib(lib, args));
         }
@@ -317,12 +232,9 @@ if (typeof jQuery === "undefined" &&
           this.patch(this.libs[lib]);
           return this.libs[lib].init.apply(this.libs[lib], args);
         }
-<<<<<<< HEAD
         else {
           return function () {};
         }
-=======
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       }.bind(this), lib);
     },
 
@@ -355,7 +267,6 @@ if (typeof jQuery === "undefined" &&
     },
 
     random_str : function (length) {
-<<<<<<< HEAD
       var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
 
       if (!length) {
@@ -365,17 +276,6 @@ if (typeof jQuery === "undefined" &&
       var str = '';
       for (var i = 0; i < length; i++) {
         str += chars[Math.floor(Math.random() * chars.length)];
-=======
-      var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz'.split('');
-      
-      if (!length) {
-          length = Math.floor(Math.random() * chars.length);
-      }
-      
-      var str = '';
-      for (var i = 0; i < length; i++) {
-          str += chars[Math.floor(Math.random() * chars.length)];
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       }
       return str;
     },
@@ -527,7 +427,6 @@ if (typeof jQuery === "undefined" &&
     },
 
     zj : function () {
-<<<<<<< HEAD
       if (typeof Zepto !== 'undefined') {
         return Zepto;
       } else {
@@ -535,15 +434,6 @@ if (typeof jQuery === "undefined" &&
       }
     }()
   };
-=======
-      try {
-        return Zepto;
-      } catch (e) {
-        return jQuery;
-      }
-    }()
-  },
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
   $.fn.foundation = function () {
     var args = Array.prototype.slice.call(arguments, 0);
@@ -554,10 +444,4 @@ if (typeof jQuery === "undefined" &&
     });
   };
 
-<<<<<<< HEAD
 }(libFuncName, this, this.document));
-=======
-}(this, this.document));
-
-})(libFuncName);
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2

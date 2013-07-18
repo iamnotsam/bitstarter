@@ -6,11 +6,7 @@
   Foundation.libs.clearing = {
     name : 'clearing',
 
-<<<<<<< HEAD
     version : '4.2.2',
-=======
-    version : '4.1.3',
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
     settings : {
       templates : {
@@ -37,11 +33,7 @@
         options = $.extend(true, this.settings, method);
       }
 
-<<<<<<< HEAD
       if (typeof method !== 'string') {
-=======
-      if (typeof method != 'string') {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
         $(this.scope).find('ul[data-clearing]').each(function () {
           var $el = $(this),
               options = options || {},
@@ -87,15 +79,9 @@
 
             // if clearing is open and the current image is
             // clicked, go to the next image in sequence
-<<<<<<< HEAD
             if (target.hasClass('visible') && 
               current[0] === target[0] && 
               next.length > 0 && self.is_open(current)) {
-=======
-            if (target.hasClass('visible') 
-              && current[0] === target[0] 
-              && next.length > 0 && self.is_open(current)) {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
               target = next;
               image = target.find('img');
             }
@@ -402,11 +388,7 @@
 
       if (caption) {
         container
-<<<<<<< HEAD
           .html(caption)
-=======
-          .text(caption)
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
           .show();
       } else {
         container

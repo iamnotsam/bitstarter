@@ -1,15 +1,10 @@
 //
 // Grid Variables
 //
-<<<<<<< HEAD
 $include-html-grid-classes: $include-html-classes !default;
 
 $row-width: emCalc(1000) !default;
 $column-gutter: emCalc(30) !default;
-=======
-$row-width:     emCalc(1000px) !default;
-$column-gutter: emCalc(30px) !default;
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 $total-columns: 12 !default;
 
 //
@@ -68,11 +63,7 @@ $total-columns: 12 !default;
 
 
 // For creating columns - @include these inside a media query to control small vs. large grid layouts
-<<<<<<< HEAD
 @mixin grid-column($columns:false, $last-column:false, $center:false, $offset:false, $push:false, $pull:false, $collapse:false, $float:true) {
-=======
-@mixin grid-column($columns:false, $last-column:false, $center:false, $offset:false, $push:false, $pull:false, $collapse:false, $float:$default-float) {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
   position: relative;
 
@@ -120,14 +111,8 @@ $total-columns: 12 !default;
 }
 
 
-<<<<<<< HEAD
 @if $include-html-grid-classes != false {
   /* Grid HTML Classes */
-=======
-/* Grid HTML Classes */
-@if $include-html-grid-classes != false {
-
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
   .row {
     @include grid-row;
 
@@ -153,11 +138,7 @@ $total-columns: 12 !default;
       .small#{-$i} { @include grid-column($columns:$i,$collapse:null,$float:false); }
     }
 
-<<<<<<< HEAD
     @for $i from 0 through $total-columns - 2 {
-=======
-    @for $i from 1 through $total-columns - 2 {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       .small-offset-#{$i} { @include grid-column($offset:$i, $collapse:null,$float:false); }
     }
 
@@ -175,11 +156,7 @@ $total-columns: 12 !default;
       .large#{-$i} { @include grid-column($columns:$i,$collapse:null,$float:false); }
     }
 
-<<<<<<< HEAD
     @for $i from 0 through $total-columns - 1 {
-=======
-    @for $i from 1 through $total-columns - 1 {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       .row .large-offset-#{$i} { @include grid-column($offset:$i, $collapse:null,$float:false); }
     }
 
@@ -188,36 +165,21 @@ $total-columns: 12 !default;
       .pull#{-$i} { @include grid-column($pull:$i, $collapse:null, $float:false); }
     }
 
-<<<<<<< HEAD
     .column.large-centered,
     .columns.large-centered { @include grid-column($center:true, $collapse:null, $float:false); }
 
     .column.large-uncentered,
     .columns.large-uncentered {
-=======
-    @for $i from 1 through $total-columns - 1 {
-      .small-push#{-$i} { #{$default-float}: inherit; }
-      .small-pull#{-$i} { #{$opposite-direction}: inherit; }
-    }
-
-    .column.small-centered,
-    .columns.small-centered {
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
       margin-#{$default-float}: 0;
       margin-#{$opposite-direction}: 0;
       float: $default-float !important;
     }
 
-<<<<<<< HEAD
     .column.large-uncentered.opposite,
     .columns.large-uncentered.opposite {
       float: $opposite-direction !important;
     }
 
-=======
-    .column.large-centered,
-    .columns.large-centered { @include grid-column($center:true, $collapse:null, $float:false); }
->>>>>>> 310c315ba7b2f49a26f4157f11c5ed489ae622a2
 
   }
 
