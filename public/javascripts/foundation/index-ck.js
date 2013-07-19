@@ -14,5 +14,5 @@
 =require foundation/foundation.topbar
 =require foundation/foundation.interchange
 =require foundation/foundation.placeholder
-*/
-require foundation/foundation.reveal
+=require foundation/foundation.abide
+*/;

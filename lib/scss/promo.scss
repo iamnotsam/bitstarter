@@ -12,7 +12,7 @@
 h1{
 	font-weight: bold;
 	text-transform: uppercase;
-  @include rhythm(0, 0, 0, 0);
+  @include rhythm(1, 0, 0, 0);
 	@include adjust-font-size-to(1px * modScale($textNumber, 1));  
   span{
   	color: darken($body-font-color, 5%);
@@ -66,7 +66,6 @@ footer{
 
 @media #{$medium} {
 	h1{
-	  @include rhythm(0, 0, 0, 0);
 		@include adjust-font-size-to(1px * modScale($textNumber, 2));  	  
 	}
 	h2{
